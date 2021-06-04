@@ -2,8 +2,16 @@ import React from 'react';
 
 interface Props {}
 
+const divStyle: React.CSSProperties = {
+  backgroundColor: 'green',
+};
+
 const UpgradeContainer: React.FC<Props> = () => {
-  return <></>;
+  return (
+    <div id='upgradeContainer' style={divStyle}>
+      UpgradeContainer
+    </div>
+  );
 };
 
 export default UpgradeContainer;

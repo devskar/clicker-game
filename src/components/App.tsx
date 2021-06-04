@@ -8,12 +8,12 @@ interface Props {}
 
 const App: React.FC<Props> = () => {
   return (
-    <>
+    <div id='main'>
       <ItemContainer />
+      <IncomeDisplay />
       <MoneyButton />
       <UpgradeContainer />
-      <IncomeDisplay />
-    </>
+    </div>
   );
 };
 
