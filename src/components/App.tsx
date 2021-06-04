@@ -1,11 +1,18 @@
 import React from 'react';
+import IncomeDisplay from './IncomeDisplay';
+import ItemContainer from './ItemContainer';
+import MoneyButton from './MoneyButton';
+import UpgradeContainer from './UpgradeContainer';
 
 interface Props {}
 
 const App: React.FC<Props> = () => {
   return (
     <>
-      <h1>Clicker Game!</h1>
+      <ItemContainer />
+      <MoneyButton />
+      <UpgradeContainer />
+      <IncomeDisplay />
     </>
   );
 };
