@@ -5,7 +5,7 @@ interface Props {}
 const App: React.FC<Props> = () => {
   return (
     <>
-      <h1>Hello world from React!</h1>
+      <h1>Clicker Game!</h1>
     </>
   );
 };
