@@ -1,0 +1,14 @@
+[
+    {
+        "name": "TestItem",
+        "price": 100,
+        "currentLevel": 0,
+        "description": "This is a test item."
+    },
+    {
+        "name": "SecondTestItem",
+        "price": 300,
+        "currentLevel": 0,
+        "description": "This is the second test item."
+    }
+]
