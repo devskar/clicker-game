@@ -1,7 +1,7 @@
 const rules = require('./webpack.rules')
 const plugins = require('./webpack.plugins')
 
-rules.push({
+configuredRules = rules.concat({
   test: /\.css$/,
   use: [{ loader: 'style-loader' }, { loader: 'css-loader' }]
 });
@@ -9,7 +9,7 @@ rules.push({
 module.exports = {
   target: 'electron-renderer',
   module: {
-    rules
+    rules: configuredRules
   },
   plugins,
   resolve: {

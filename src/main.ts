@@ -1,5 +1,6 @@
 import { app, BrowserWindow } from 'electron';
 import isDev from 'electron-is-dev';
+import { loadFile as loadItemFile } from './items';
 declare var MAIN_WINDOW_WEBPACK_ENTRY: any;
 declare var MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY: any;
 
@@ -57,6 +58,8 @@ app.on('window-all-closed', () => {
     app.quit();
   }
 });
+
+loadItemFile();
 
 app.on('activate', () => {
   // On OS X it's common to re-create a window in the app when the
