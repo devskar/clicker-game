@@ -4,6 +4,9 @@ import config from '../assets/Items.json';
 
 let file: editJsonFile.JsonEditor | null = null;
 
+// make file known to webpack
+config;
+
 export const fileLoaded = () => file != null;
 
 export const loadFile = () => {

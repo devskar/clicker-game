@@ -1,15 +1,16 @@
 const rules = require('./webpack.rules')
 const plugins = require('./webpack.plugins')
 
-configuredRules = rules.concat({
-	test: /\.json$/,
-	loader: 'file-loader',
-	type: 'javascript/auto',
+const mainRules = rules.concat({
+  test: /\.json$/,
+  loader: 'file-loader',
+  type: 'javascript/auto',
   options: {
     name() {
       return '[path][name].[ext]';
     }
-}})
+  }
+},)
 
 module.exports = {
   /**
@@ -20,7 +21,7 @@ module.exports = {
   target: 'electron-main',
   // Put your normal webpack config below here
   module: {
-    rules: configuredRules,
+    rules: mainRules,
   },
   plugins,
   resolve: {
