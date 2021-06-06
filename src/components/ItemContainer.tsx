@@ -9,7 +9,7 @@ const divStyle: React.CSSProperties = {
 const ItemContainer: React.FC<Props> = () => {
   return (
     <div id='itemContainer' style={divStyle}>
-      ItemContainer
+      <h2>Items</h2>
     </div>
   );
 };

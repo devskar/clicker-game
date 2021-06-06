@@ -1,4 +1,5 @@
 import React from 'react';
+import { getItems } from '../items';
 
 interface Props {}
 
@@ -14,7 +15,14 @@ const buttonStyle: React.CSSProperties = {
 const MoneyButton: React.FC<Props> = () => {
   return (
     <div style={divStyle} id='moneyButton'>
-      <button style={buttonStyle}>Money</button>
+      <button
+        onClick={() => {
+          console.log(getItems());
+        }}
+        style={buttonStyle}
+      >
+        Money
+      </button>
     </div>
   );
 };

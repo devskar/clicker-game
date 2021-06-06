@@ -15,7 +15,7 @@ const tagStyle: React.CSSProperties = {
 const IncomeDisplay: React.FC<Props> = () => {
   return (
     <div style={divStyle} id='incomeDisplay'>
-      <p>Test</p>
+      <h1 style={tagStyle}>Income</h1>
     </div>
   );
 };

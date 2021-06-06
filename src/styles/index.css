@@ -24,6 +24,7 @@ body {
 #itemContainer {
   grid-column: 1 / span 2;
   grid-row: 1 / span var(--main-row-amount);
+  overflow: hidden;
 }
 
 #moneyButton {
