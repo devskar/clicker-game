@@ -13,19 +13,21 @@ class ItemManager extends Manager {
   }
 
   getItems = (): Item[] => {
-    const items: Item[] = JSON.parse(JSON.stringify(this.file?.read()));
+    const items: Item[] = JSON.parse(JSON.stringify(this.cashedContent));
     return items;
   };
 
   upgradeItem = (id: number) => {
-    const items = this.getItems();
-    const item = items[id];
+    // const items = this.getItems();
+    // const item = items[id];
 
-    item.currentLevel += 1;
+    // item.currentLevel += 1;
 
-    items[id] = item;
+    // items[id] = item;
 
-    this.file?.write(JSON.stringify(items));
+    // this.file?.write(JSON.stringify(items));
+
+    this.cashedContent[id].currentLevel += 1;
   };
 }
 

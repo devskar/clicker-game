@@ -11,7 +11,11 @@ class AccountManager extends Manager {
   }
 
   getMoney = (): number => {
-    return this.file?.get('money');
+    return this.cashedContent['money'];
+  };
+
+  increaseMoney = (amount: number) => {
+    this.cashedContent['money'] = this.cashedContent['money'] += amount;
   };
 }
 
