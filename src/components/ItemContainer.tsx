@@ -11,7 +11,6 @@ const divStyle: React.CSSProperties = {
 
 const ItemContainer: React.FC<Props> = () => {
   const [itemData, setItemData] = useState<Item[]>();
-  const [itemElements, setItemElements] = useState<JSX.Element[]>([]);
 
   useEffect(() => {
     ipcRenderer.on(IPC_ITEMS_UPDATE, (_, updatedItemData: Item[]) => {
