@@ -1,6 +1,6 @@
 {
-  "name": "boilerplate",
-  "productName": "maybe-now",
+  "name": "clicker-game",
+  "productName": "clicker-game",
   "version": "1.0.0",
   "description": "My Electron application description",
   "main": ".webpack/main",
