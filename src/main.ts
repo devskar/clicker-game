@@ -1,6 +1,14 @@
 import { app, BrowserWindow, ipcMain } from 'electron';
 import isDev from 'electron-is-dev';
-import ItemManager from './itemManager';
+import {
+  IPC_ITEMS_GET_ALL,
+  IPC_ITEM_UPGRADE,
+  IPC_ITEMS_UPDATE,
+  IPC_MONEY_GET,
+  IPC_MONEY_UPDATE,
+} from './const';
+import AccountManager from './manager/AccountManager';
+import ItemManager from './manager/ItemManager';
 declare var MAIN_WINDOW_WEBPACK_ENTRY: any;
 declare var MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY: any;
 
@@ -32,7 +40,7 @@ const createWindow = () => {
   mainWindow.loadURL(MAIN_WINDOW_WEBPACK_ENTRY);
 
   // Open the DevTools.
-  if (isDev) mainWindow.webContents.openDevTools();
+  // if (isDev) mainWindow.webContents.openDevTools();
 
   // Emitted when the window is closed.
   mainWindow.on('closed', () => {
@@ -71,11 +79,32 @@ app.on('activate', () => {
 // code. You can also put them in separate files and import them here.
 
 const itemManager = new ItemManager();
+const accountManager = new AccountManager();
 
-ipcMain.on('money-button:clicked', () => {
-  console.log(itemManager.getItems());
+// SENDER
+const sendItemUpdate = () => {
+  mainWindow?.webContents.send(IPC_MONEY_UPDATE, itemManager.getItems());
+};
+
+const sendMoneyUpdate = () => {
+  mainWindow?.webContents.send(IPC_MONEY_UPDATE, accountManager.getMoney());
+};
+
+// LISTENER
+ipcMain.on('money-button:clicked', (event) => {
+  accountManager.increaseMoney(1);
+  event.reply(IPC_MONEY_UPDATE, accountManager.getMoney());
 });
 
-ipcMain.on('item:upgrade', () => {
-  itemManager.upgradeItem(0);
+ipcMain.on(IPC_MONEY_GET, (event) => {
+  event.reply(IPC_MONEY_UPDATE, accountManager.getMoney());
+});
+
+ipcMain.on(IPC_ITEMS_GET_ALL, (event) => {
+  event.reply(IPC_ITEMS_UPDATE, itemManager.getItems());
+});
+
+ipcMain.on(IPC_ITEM_UPGRADE, (_, id: number) => {
+  itemManager.upgradeItem(id);
+  sendItemUpdate();
 });

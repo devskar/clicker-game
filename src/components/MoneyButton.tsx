@@ -1,5 +1,6 @@
-import React from 'react';
-import { getItems } from '../items';
+import React, { useEffect, useState } from 'react';
+import { ipcRenderer } from 'electron';
+import { IPC_MONEY_GET, IPC_MONEY_UPDATE } from '../const';
 
 interface Props {}
 
@@ -13,15 +14,25 @@ const buttonStyle: React.CSSProperties = {
 };
 
 const MoneyButton: React.FC<Props> = () => {
+  const [moneyAmount, setMoneyAmount] = useState(0);
+
+  useEffect(() => {
+    ipcRenderer.on(IPC_MONEY_UPDATE, (_, amount: number) => {
+      setMoneyAmount(amount);
+    });
+
+    ipcRenderer.send(IPC_MONEY_GET);
+  }, []);
+
   return (
     <div style={divStyle} id='moneyButton'>
       <button
         onClick={() => {
-          console.log(getItems());
+          ipcRenderer.send('money-button:clicked');
         }}
         style={buttonStyle}
       >
-        Money
+        {moneyAmount}
       </button>
     </div>
   );
