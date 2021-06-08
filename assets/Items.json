@@ -1,12 +1,14 @@
 [
     {
         "name": "TestItem",
+        "id": 0,
         "price": 100,
         "currentLevel": 0,
         "description": "This is a test item."
     },
     {
         "name": "SecondTestItem",
+        "id": 1,
         "price": 300,
         "currentLevel": 0,
         "description": "This is the second test item."
