@@ -1,4 +1,6 @@
-import React from 'react';
+import { ipcRenderer } from 'electron';
+import React, { useEffect, useState } from 'react';
+import { IPC_MONEY_GET, IPC_MONEY_UPDATE } from '../const';
 
 interface Props {}
 
@@ -15,7 +17,7 @@ const tagStyle: React.CSSProperties = {
 const IncomeDisplay: React.FC<Props> = () => {
   return (
     <div style={divStyle} id='incomeDisplay'>
-      <h1 style={tagStyle}>Income</h1>
+      <h1 style={tagStyle}>1€/sec</h1>
     </div>
   );
 };
