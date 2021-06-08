@@ -1,7 +1,6 @@
 import editJsonFile, { JsonEditor } from 'edit-json-file';
 
 class Manager {
-  [x: string]: any;
   filePath: string;
   saveEveryXSeconds: number;
   file: JsonEditor | null;
