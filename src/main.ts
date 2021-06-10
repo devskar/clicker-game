@@ -44,6 +44,8 @@ const createWindow = () => {
 
   // Emitted when the window is closed.
   mainWindow.on('closed', () => {
+    [itemManager, accountManager].map((manager) => manager.save());
+
     // Dereference the window object, usually you would store windows
     // in an array if your app supports multi windows, this is the time
     // when you should delete the corresponding element.
@@ -83,7 +85,7 @@ const accountManager = new AccountManager();
 
 // SENDER
 const sendItemUpdate = () => {
-  mainWindow?.webContents.send(IPC_MONEY_UPDATE, itemManager.getItems());
+  mainWindow?.webContents.send(IPC_ITEMS_UPDATE, itemManager.getItems());
 };
 
 const sendMoneyUpdate = () => {
@@ -105,6 +107,7 @@ ipcMain.on(IPC_ITEMS_GET_ALL, (event) => {
 });
 
 ipcMain.on(IPC_ITEM_UPGRADE, (_, id: number) => {
+  console.log(id);
   itemManager.upgradeItem(id);
   sendItemUpdate();
 });
