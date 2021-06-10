@@ -2,6 +2,7 @@ import { ipcRenderer } from 'electron';
 import React, { useEffect, useState } from 'react';
 import { IPC_ITEMS_GET_ALL, IPC_ITEMS_UPDATE } from '../const';
 import Item from '../entities/Item';
+import ItemComponent from './ItemComponent';
 
 interface Props {}
 
@@ -24,7 +25,14 @@ const ItemContainer: React.FC<Props> = () => {
     <div id='itemContainer' style={divStyle}>
       <h2>Items</h2>
       {itemData?.map((item) => (
-        <p key={item.id}>{item.name}</p>
+        <ItemComponent
+          key={item.id}
+          description={item.description}
+          level={item.currentLevel}
+          name={item.name}
+          upgradeCosts={item.price}
+          id={item.id}
+        />
       ))}
     </div>
   );
