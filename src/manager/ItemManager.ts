@@ -31,7 +31,7 @@ class ItemManager extends FileManager {
   };
 
   static canUpgradeItem = (item: Item, money: number): boolean => {
-    return item.basePrice <= money;
+    return ItemManager.getItemPrice(item) <= money;
   };
 
   canUpgradeItemById = (item_id: number, money: number): boolean => {

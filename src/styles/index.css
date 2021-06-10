@@ -46,3 +46,7 @@ body {
   grid-column: 11 / span 12;
   grid-row: 1 / span var(--main-row-amount);
 }
+
+.nonselectable {
+  user-select: none;
+}

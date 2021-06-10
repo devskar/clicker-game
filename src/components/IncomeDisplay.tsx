@@ -25,7 +25,7 @@ const IncomeDisplay: React.FC<Props> = () => {
   }, []);
 
   return (
-    <div style={divStyle} id='incomeDisplay'>
+    <div style={divStyle} id='incomeDisplay' className='nonselectable'>
       <h1 style={tagStyle}>{income}/sec</h1>
     </div>
   );
