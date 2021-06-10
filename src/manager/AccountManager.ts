@@ -20,6 +20,12 @@ class AccountManager extends FileManager {
       (this.cashedContent['money'] += amount),
     );
   };
+
+  decreaseMoney = (amount: number) => {
+    this.cashedContent['money'] = round(
+      (this.cashedContent['money'] -= amount),
+    );
+  };
 }
 
 export default AccountManager;

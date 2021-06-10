@@ -10,8 +10,8 @@ import {
 } from './const';
 import Item from './entities/Item';
 import AccountManager from './manager/AccountManager';
-import ItemManager from './manager/ItemManager';
 import IncomeManager from './manager/IncomeManager';
+import ItemManager from './manager/ItemManager';
 import { round } from './utils';
 declare var MAIN_WINDOW_WEBPACK_ENTRY: any;
 declare var MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY: any;
@@ -116,8 +116,15 @@ ipcMain.on(IPC_ITEMS_GET_ALL, (event) => {
 });
 
 ipcMain.on(IPC_ITEM_UPGRADE, (_, id: number) => {
-  itemManager.upgradeItem(id);
-  sendItemUpdate(itemManager.getItems());
+  const item = itemManager.getItem(id);
+
+  if (itemManager.canUpgradeItem(item, accountManager.getMoney())) {
+    accountManager.decreaseMoney(item.price);
+    sendMoneyUpdate(accountManager.getMoney());
+
+    itemManager.upgradeItem(item);
+    sendItemUpdate(itemManager.getItems());
+  }
 });
 
 // START MONEY LOOP

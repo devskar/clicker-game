@@ -16,8 +16,24 @@ class ItemManager extends FileManager {
     return items;
   };
 
-  upgradeItem = (id: number) => {
+  getItem = (id: number): Item => {
+    return this.cashedContent[id];
+  };
+
+  canUpgradeItem = (item: Item, money: number): boolean => {
+    return item.price < money;
+  };
+
+  canUpgradeItemById = (item_id: number, money: number): boolean => {
+    return this.canUpgradeItem(this.cashedContent[item_id], money);
+  };
+
+  upgradeItemById = (id: number) => {
     this.cashedContent[id].currentLevel += 1;
+  };
+
+  upgradeItem = (item: Item) => {
+    this.upgradeItemById(item.id);
   };
 }
 
