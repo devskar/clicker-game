@@ -15,7 +15,9 @@ class AccountManager extends FileManager {
   };
 
   increaseMoney = (amount: number) => {
-    this.cashedContent['money'] = this.cashedContent['money'] += amount;
+    this.cashedContent['money'] = Math.round(
+      (this.cashedContent['money'] += amount),
+    );
   };
 }
 

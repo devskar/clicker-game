@@ -1,6 +1,6 @@
 import editJsonFile, { JsonEditor } from 'edit-json-file';
 
-class Manager {
+class FileManager {
   filePath: string;
   saveEveryXSeconds: number;
   file: JsonEditor | null;
@@ -36,4 +36,4 @@ class Manager {
   };
 }
 
-export default Manager;
+export default FileManager;
