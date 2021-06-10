@@ -7,8 +7,8 @@ import {
   IPC_MONEY_GET,
   IPC_MONEY_UPDATE,
 } from './const';
-import AccountManager from './manager/AccountManager';
-import ItemManager from './manager/ItemManager';
+import AccountManager from './manager/AccountFileManager';
+import ItemManager from './manager/ItemFileManager';
 declare var MAIN_WINDOW_WEBPACK_ENTRY: any;
 declare var MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY: any;
 
