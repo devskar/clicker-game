@@ -16,11 +16,15 @@ class Manager {
   }
 
   startFileSaveLoop() {
-    if (this.cashedContent)
-      this.file?.write(JSON.stringify(this.cashedContent));
+    this.save();
 
     this.cashedContent = this.file?.read();
     setTimeout(() => this.startFileSaveLoop(), this.saveEveryXSeconds * 1000);
+  }
+
+  save() {
+    if (this.cashedContent)
+      this.file?.write(JSON.stringify(this.cashedContent));
   }
 
   fileLoaded = () => {
