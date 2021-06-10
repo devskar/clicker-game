@@ -107,7 +107,6 @@ ipcMain.on(IPC_ITEMS_GET_ALL, (event) => {
 });
 
 ipcMain.on(IPC_ITEM_UPGRADE, (_, id: number) => {
-  console.log(id);
   itemManager.upgradeItem(id);
   sendItemUpdate();
 });
