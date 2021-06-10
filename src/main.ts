@@ -9,6 +9,7 @@ import {
 } from './const';
 import AccountManager from './manager/AccountManager';
 import ItemManager from './manager/ItemManager';
+import MoneyManager from './manager/MoneyManager';
 declare var MAIN_WINDOW_WEBPACK_ENTRY: any;
 declare var MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY: any;
 
@@ -82,6 +83,7 @@ app.on('activate', () => {
 
 const itemManager = new ItemManager();
 const accountManager = new AccountManager();
+const moneyManager = new MoneyManager(itemManager);
 
 // SENDER
 const sendItemUpdate = () => {
@@ -110,3 +112,14 @@ ipcMain.on(IPC_ITEM_UPGRADE, (_, id: number) => {
   itemManager.upgradeItem(id);
   sendItemUpdate();
 });
+
+// START MONEY LOOP
+
+const moneyLoop = () => {
+  accountManager.increaseMoney(moneyManager.getMoneyPerSecond());
+
+  setTimeout(() => moneyLoop(), 1 * 1000);
+  sendMoneyUpdate();
+};
+
+moneyLoop();
