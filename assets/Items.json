@@ -1,20 +1,26 @@
 [
     {
-        "name": "TestItem",
+        "name": "ClickItem",
         "id": 0,
         "price": 100,
-        "moneyPerSecond": 1,
-        "multiplier": 0.2,
+        "priceMultiplier": 0.3,
+        "moneyPerClick": 1,
+        "moneyPerClickMultiplier": 0.2, 
+        "moneyPerSecond": 0,
+        "moneyPerSecondMultiplier": 0,
         "currentLevel": 0,
-        "description": "This is a test item."
+        "description": "This item increases your money per click."
     },
     {
         "name": "SecondTestItem",
         "id": 1,
         "price": 300,
+        "priceMultiplier": 0.3,
+        "moneyPerClick": 0,
+        "moneyPerClickMultiplier": 0,
         "moneyPerSecond": 2,
-        "multiplier": 0.2,
+        "moneyPerSecondMultiplier": 0.2,
         "currentLevel": 0,
-        "description": "This is the second test item."
+        "description": "This is item increases your money per second."
     }
 ]
