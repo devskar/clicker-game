@@ -1,4 +1,3 @@
-import editJsonFile, { JsonEditor } from 'edit-json-file';
 import { ITEMS_FILE_PATH } from '../const';
 import itemFile from '../../assets/Items.json';
 import Item from '../entities/Item';
@@ -18,15 +17,6 @@ class ItemManager extends Manager {
   };
 
   upgradeItem = (id: number) => {
-    // const items = this.getItems();
-    // const item = items[id];
-
-    // item.currentLevel += 1;
-
-    // items[id] = item;
-
-    // this.file?.write(JSON.stringify(items));
-
     this.cashedContent[id].currentLevel += 1;
   };
 }
