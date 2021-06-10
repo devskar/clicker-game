@@ -2,11 +2,11 @@
     {
         "name": "ClickItem",
         "id": 0,
-        "price": 10,
+        "basePrice": 10,
         "priceMultiplier": 0.3,
-        "moneyPerClick": 1,
+        "baseMoneyPerClick": 1,
         "moneyPerClickMultiplier": 2, 
-        "moneyPerSecond": 0,
+        "baseMoneyPerSecond": 0,
         "moneyPerSecondMultiplier": 0,
         "currentLevel": 0,
         "description": "This item increases your money per click."
