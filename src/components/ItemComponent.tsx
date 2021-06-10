@@ -24,8 +24,8 @@ const ItemComponent: React.FC<Props> = (props) => {
     >
       <p>{props.name}</p>
       <p>{props.description}</p>
-      <p>{props.level}</p>
-      <p>{props.upgradeCosts}</p>
+      <p>Level: {props.level}</p>
+      <p>Costs: {props.upgradeCosts}</p>
     </div>
   );
 };
