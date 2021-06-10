@@ -30,7 +30,7 @@ const ItemContainer: React.FC<Props> = () => {
           description={item.description}
           level={item.currentLevel}
           name={item.name}
-          upgradeCosts={item.price}
+          upgradeCosts={item.basePrice}
           id={item.id}
         />
       ))}

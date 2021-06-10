@@ -118,8 +118,8 @@ ipcMain.on(IPC_ITEMS_GET_ALL, (event) => {
 ipcMain.on(IPC_ITEM_UPGRADE, (_, id: number) => {
   const item = itemManager.getItem(id);
 
-  if (itemManager.canUpgradeItem(item, accountManager.getMoney())) {
-    accountManager.decreaseMoney(item.price);
+  if (ItemManager.canUpgradeItem(item, accountManager.getMoney())) {
+    accountManager.decreaseMoney(item.basePrice);
     sendMoneyUpdate(accountManager.getMoney());
 
     itemManager.upgradeItem(item);

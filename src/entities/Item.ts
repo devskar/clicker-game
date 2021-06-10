@@ -1,11 +1,11 @@
 interface Items {
   name: string;
   id: number;
-  price: number;
+  basePrice: number;
   priceMultiplier: number;
-  moneyPerClick: number;
+  baseMoneyPerClick: number;
   moneyPerClickMultiplier: number;
-  moneyPerSecond: number;
+  baseMoneyPerSecond: number;
   moneyPerSecondMultiplier: number;
   currentLevel: number;
   description: string;

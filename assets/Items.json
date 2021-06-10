@@ -14,11 +14,11 @@
     {
         "name": "PassiveIncomeItem",
         "id": 1,
-        "price": 30,
+        "basePrice": 30,
         "priceMultiplier": 0.3,
-        "moneyPerClick": 0,
+        "baseMoneyPerClick": 0,
         "moneyPerClickMultiplier": 0,
-        "moneyPerSecond": 2,
+        "baseMoneyPerSecond": 2,
         "moneyPerSecondMultiplier": 0.2,
         "currentLevel": 0,
         "description": "This is item increases your money per second."
@@ -26,10 +26,10 @@
     {
         "name": "PassiveIncomeAndClickItem",
         "id": 2,
-        "price": 100,
+        "basePrice": 100,
         "priceMultiplier": 0.3,
-        "moneyPerClick": 1,
-        "moneyPerSecond": 4,
+        "baseMoneyPerClick": 1,
+        "baseMoneyPerSecond": 4,
         "moneyPerSecondMultiplier": 0.2,
         "currentLevel": 0,
         "description": "This is item increases your money per second and clicks."
