@@ -7,3 +7,4 @@ export const IPC_ITEMS_UPDATE = 'items:update';
 export const IPC_ITEM_UPGRADE = 'item:upgrade';
 export const IPC_MONEY_GET = 'money:get';
 export const IPC_MONEY_UPDATE = 'money:update';
+export const IPC_INCOME_UPDATE = 'income:update';

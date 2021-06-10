@@ -6,10 +6,13 @@ import {
   IPC_ITEMS_UPDATE,
   IPC_MONEY_GET,
   IPC_MONEY_UPDATE,
+  IPC_INCOME_UPDATE,
 } from './const';
+import Item from './entities/Item';
 import AccountManager from './manager/AccountManager';
 import ItemManager from './manager/ItemManager';
-import MoneyManager from './manager/MoneyManager';
+import IncomeManager from './manager/IncomeManager';
+import { round } from './utils';
 declare var MAIN_WINDOW_WEBPACK_ENTRY: any;
 declare var MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY: any;
 
@@ -83,15 +86,19 @@ app.on('activate', () => {
 
 const itemManager = new ItemManager();
 const accountManager = new AccountManager();
-const moneyManager = new MoneyManager(itemManager);
+const incomeManager = new IncomeManager(itemManager);
 
 // SENDER
-const sendItemUpdate = () => {
-  mainWindow?.webContents.send(IPC_ITEMS_UPDATE, itemManager.getItems());
+const sendItemUpdate = (items: Item[]) => {
+  mainWindow?.webContents.send(IPC_ITEMS_UPDATE, items);
 };
 
-const sendMoneyUpdate = () => {
-  mainWindow?.webContents.send(IPC_MONEY_UPDATE, accountManager.getMoney());
+const sendMoneyUpdate = (amount: number) => {
+  mainWindow?.webContents.send(IPC_MONEY_UPDATE, amount);
+};
+
+const sendIncomeUpdate = (amount: number) => {
+  mainWindow?.webContents.send(IPC_INCOME_UPDATE, amount);
 };
 
 // LISTENER
@@ -110,16 +117,25 @@ ipcMain.on(IPC_ITEMS_GET_ALL, (event) => {
 
 ipcMain.on(IPC_ITEM_UPGRADE, (_, id: number) => {
   itemManager.upgradeItem(id);
-  sendItemUpdate();
+  sendItemUpdate(itemManager.getItems());
 });
 
 // START MONEY LOOP
 
+var moneyAtLastTick = accountManager.getMoney();
+
 const moneyLoop = () => {
-  accountManager.increaseMoney(moneyManager.getMoneyPerSecond());
+  const currentMoneyPerSecond = incomeManager.getMoneyPerSecond();
+  const currentMoney = accountManager.getMoney();
+
+  accountManager.increaseMoney(currentMoneyPerSecond);
+  sendMoneyUpdate(currentMoney);
+
+  sendIncomeUpdate(round(currentMoney - moneyAtLastTick));
+
+  moneyAtLastTick = currentMoney;
 
   setTimeout(() => moneyLoop(), 1 * 1000);
-  sendMoneyUpdate();
 };
 
 moneyLoop();

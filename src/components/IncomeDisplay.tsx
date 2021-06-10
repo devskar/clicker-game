@@ -1,11 +1,12 @@
 import { ipcRenderer } from 'electron';
 import React, { useEffect, useState } from 'react';
-import { IPC_MONEY_GET, IPC_MONEY_UPDATE } from '../const';
+import { IPC_INCOME_UPDATE, IPC_MONEY_GET, IPC_MONEY_UPDATE } from '../const';
 
 interface Props {}
 
 const divStyle: React.CSSProperties = {
   backgroundColor: 'purple',
+  overflow: 'hidden',
 };
 
 const tagStyle: React.CSSProperties = {
@@ -15,9 +16,17 @@ const tagStyle: React.CSSProperties = {
 };
 
 const IncomeDisplay: React.FC<Props> = () => {
+  const [income, setIncome] = useState(0);
+
+  useEffect(() => {
+    ipcRenderer.on(IPC_INCOME_UPDATE, (_, updatedIncome: number) => {
+      setIncome(updatedIncome);
+    });
+  }, []);
+
   return (
     <div style={divStyle} id='incomeDisplay'>
-      <h1 style={tagStyle}>1€/sec</h1>
+      <h1 style={tagStyle}>{income}/sec</h1>
     </div>
   );
 };

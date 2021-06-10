@@ -1,6 +1,7 @@
 import { ACCOUNT_FILE_PATH } from '../const';
 import accountFile from '../../assets/Account.json';
 import FileManager from './FileManager';
+import { round } from '../utils';
 
 class AccountManager extends FileManager {
   constructor() {
@@ -15,7 +16,7 @@ class AccountManager extends FileManager {
   };
 
   increaseMoney = (amount: number) => {
-    this.cashedContent['money'] = Math.round(
+    this.cashedContent['money'] = round(
       (this.cashedContent['money'] += amount),
     );
   };
