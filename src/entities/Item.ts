@@ -1,6 +1,6 @@
 interface Item {
   name: string;
-  id: string;
+  id: number;
   price: number;
   moneyPerSecond: number;
   multiplier: number;
