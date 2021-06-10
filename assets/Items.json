@@ -2,7 +2,7 @@
     {
         "name": "ClickItem",
         "id": 0,
-        "price": 100,
+        "price": 10,
         "priceMultiplier": 0.3,
         "moneyPerClick": 1,
         "moneyPerClickMultiplier": 0.2, 
@@ -14,7 +14,7 @@
     {
         "name": "SecondTestItem",
         "id": 1,
-        "price": 300,
+        "price": 30,
         "priceMultiplier": 0.3,
         "moneyPerClick": 0,
         "moneyPerClickMultiplier": 0,
