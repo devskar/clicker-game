@@ -103,7 +103,7 @@ const sendIncomeUpdate = (amount: number) => {
 
 // LISTENER
 ipcMain.on('money-button:clicked', (event) => {
-  accountManager.increaseMoney(1);
+  accountManager.increaseMoney(incomeManager.getMoneyPerClick());
   event.reply(IPC_MONEY_UPDATE, accountManager.getMoney());
 });
 
