@@ -21,7 +21,7 @@ class ItemManager extends FileManager {
   };
 
   canUpgradeItem = (item: Item, money: number): boolean => {
-    return item.price < money;
+    return item.price <= money;
   };
 
   canUpgradeItemById = (item_id: number, money: number): boolean => {

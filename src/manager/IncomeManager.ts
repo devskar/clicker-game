@@ -14,8 +14,10 @@ class IncomeManager {
     for (const item of this.itemManager.getItems()) {
       if (item.currentLevel > 0) {
         moneyPerSecond +=
-          item.moneyPerSecond *
-          (1 + item.currentLevel * item.moneyPerSecondMultiplier);
+          item.moneyPerSecond +
+          item.currentLevel *
+            item.moneyPerSecondMultiplier *
+            item.moneyPerSecond;
       }
     }
 
@@ -27,9 +29,11 @@ class IncomeManager {
 
     for (const item of this.itemManager.getItems()) {
       if (item.currentLevel > 0) {
-        moneyPerClick +=
+        const toBeAdded =
           item.moneyPerClick *
-          (1 + item.currentLevel * item.moneyPerClickMultiplier);
+          ((item.currentLevel - 1) * item.moneyPerClickMultiplier);
+
+        moneyPerClick += toBeAdded >= 1 ? toBeAdded : 1;
       }
     }
 
