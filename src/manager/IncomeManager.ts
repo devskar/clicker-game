@@ -23,7 +23,7 @@ class IncomeManager {
   }
 
   getMoneyPerClick() {
-    let moneyPerClick: number = 0;
+    let moneyPerClick: number = 1;
 
     for (const item of this.itemManager.getItems()) {
       if (item.currentLevel > 0) {
