@@ -1,4 +1,4 @@
-interface Items {
+interface Item {
   name: string;
   id: number;
   basePrice: number;
@@ -11,4 +11,4 @@ interface Items {
   description: string;
 }
 
-export default Items;
+export default Item;

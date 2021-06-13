@@ -1,31 +1,29 @@
 import { ipcRenderer } from 'electron';
 import React from 'react';
 import { IPC_ITEM_UPGRADE } from '../const';
+import Item from '../entities/Item';
+import ItemManager from '../manager/ItemManager';
 
 interface Props {
-  name: string;
-  level: number;
-  id: number;
-  description: string;
-  upgradeCosts: number;
+  item: Item;
 }
 
 const divStyle: React.CSSProperties = {
   border: '1px solid black',
 };
 
-const ItemComponent: React.FC<Props> = (props) => {
+const ItemComponent: React.FC<Props> = ({ item }) => {
   return (
     <div
       onClick={() => {
-        ipcRenderer.send(IPC_ITEM_UPGRADE, props.id);
+        ipcRenderer.send(IPC_ITEM_UPGRADE, item.id);
       }}
       style={divStyle}
     >
-      <p>{props.name}</p>
-      <p>{props.description}</p>
-      <p>Level: {props.level}</p>
-      <p>Costs: {props.upgradeCosts}</p>
+      <p>{item.name}</p>
+      <p>{item.description}</p>
+      <p>Level: {item.currentLevel}</p>
+      <p>Costs: {ItemManager.getItemPrice(item)}</p>
     </div>
   );
 };

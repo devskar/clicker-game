@@ -26,14 +26,7 @@ const ItemContainer: React.FC<Props> = () => {
     <div id='itemContainer' style={divStyle} className='nonselectable'>
       <h2>Items</h2>
       {itemData?.map((item) => (
-        <ItemComponent
-          key={item.id}
-          description={item.description}
-          level={item.currentLevel}
-          name={item.name}
-          upgradeCosts={ItemManager.getItemPrice(item)}
-          id={item.id}
-        />
+        <ItemComponent item={item} />
       ))}
     </div>
   );
