@@ -11,19 +11,19 @@ class AccountManager extends FileManager {
     accountFile;
   }
 
-  getMoney = (): number => {
-    return this.cashedContent['money'];
+  getFollower = (): number => {
+    return this.cashedContent['follower'];
   };
 
-  increaseMoney = (amount: number) => {
-    this.cashedContent['money'] = round(
-      (this.cashedContent['money'] += amount),
+  increaseFollower = (amount: number) => {
+    this.cashedContent['follower'] = round(
+      (this.cashedContent['follower'] += amount),
     );
   };
 
-  decreaseMoney = (amount: number) => {
-    this.cashedContent['money'] = round(
-      (this.cashedContent['money'] -= amount),
+  decreaseFollower = (amount: number) => {
+    this.cashedContent['follower'] = round(
+      (this.cashedContent['follower'] -= amount),
     );
   };
 }

@@ -1,6 +1,10 @@
 import { ipcRenderer } from 'electron';
 import React, { useEffect, useState } from 'react';
-import { IPC_INCOME_UPDATE, IPC_MONEY_GET, IPC_MONEY_UPDATE } from '../const';
+import {
+  IPC_INCOME_UPDATE,
+  IPC_FOLLOWER_GET,
+  IPC_FOLLOWER_UPDATE,
+} from '../const';
 
 interface Props {}
 

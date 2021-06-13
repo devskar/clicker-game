@@ -8,36 +8,36 @@ class IncomeManager {
     this.itemManager = ItemManager;
   }
 
-  getMoneyPerSecond() {
-    let moneyPerSecond: number = 0;
+  getFollowerPerSecond() {
+    let followerPerSecond: number = 0;
 
     for (const item of this.itemManager.getItems()) {
       if (item.currentLevel > 0) {
-        moneyPerSecond +=
-          item.baseMoneyPerSecond +
+        followerPerSecond +=
+          item.baseFollowerPerSecond +
           item.currentLevel *
-            item.moneyPerSecondMultiplier *
-            item.baseMoneyPerSecond;
+            item.followerPerSecondMultiplier *
+            item.baseFollowerPerSecond;
       }
     }
 
-    return round(moneyPerSecond);
+    return round(followerPerSecond);
   }
 
-  getMoneyPerClick() {
-    let moneyPerClick: number = 1;
+  getFollowerPerClick() {
+    let followerPerClick: number = 1;
 
     for (const item of this.itemManager.getItems()) {
       if (item.currentLevel > 0) {
         const toBeAdded =
-          item.baseMoneyPerClick *
-          ((item.currentLevel - 1) * item.moneyPerClickMultiplier);
+          item.baseFollowerPerClick *
+          ((item.currentLevel - 1) * item.followerPerClickMultiplier);
 
-        moneyPerClick += toBeAdded >= 1 ? toBeAdded : 1;
+        followerPerClick += toBeAdded >= 1 ? toBeAdded : 1;
       }
     }
 
-    return round(moneyPerClick);
+    return round(followerPerClick);
   }
 }
 

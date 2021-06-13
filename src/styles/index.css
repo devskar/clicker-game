@@ -27,7 +27,7 @@ body {
   overflow: hidden;
 }
 
-#moneyButton {
+#followerButton {
   grid-column: 5 / span 4;
   grid-row: 4 / span 2;
 }

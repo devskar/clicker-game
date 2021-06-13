@@ -4,34 +4,35 @@
         "id": 0,
         "basePrice": 10,
         "priceMultiplier": 0.3,
-        "baseMoneyPerClick": 1,
-        "moneyPerClickMultiplier": 2, 
-        "baseMoneyPerSecond": 0,
-        "moneyPerSecondMultiplier": 0,
+        "baseFollowerPerClick": 1,
+        "followerPerClickMultiplier": 2, 
+        "baseFollowerPerSecond": 0,
+        "followerPerSecondMultiplier": 0,
         "currentLevel": 0,
-        "description": "This item increases your money per click."
+        "description": "This item increases your follower per click."
     },
     {
         "name": "PassiveIncomeItem",
         "id": 1,
         "basePrice": 30,
         "priceMultiplier": 0.3,
-        "baseMoneyPerClick": 0,
-        "moneyPerClickMultiplier": 0,
-        "baseMoneyPerSecond": 2,
-        "moneyPerSecondMultiplier": 0.2,
+        "baseFollowerPerClick": 0,
+        "followerPerClickMultiplier": 0,
+        "baseFollowerPerSecond": 2,
+        "followerPerSecondMultiplier": 0.2,
         "currentLevel": 0,
-        "description": "This is item increases your money per second."
+        "description": "This is item increases your follower per second."
     },
     {
         "name": "PassiveIncomeAndClickItem",
         "id": 2,
         "basePrice": 100,
         "priceMultiplier": 0.3,
-        "baseMoneyPerClick": 1,
-        "baseMoneyPerSecond": 4,
-        "moneyPerSecondMultiplier": 0.2,
+        "baseFollowerPerClick": 1,
+        "followerPerClickMultiplier": 2,
+        "baseFollowerPerSecond": 4,
+        "followerPerSecondMultiplier": 0.2,
         "currentLevel": 0,
-        "description": "This is item increases your money per second and clicks."
+        "description": "This is item increases your follower per second and clicks."
     }
 ]

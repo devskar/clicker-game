@@ -30,12 +30,12 @@ class ItemManager extends FileManager {
     return ItemManager.getItemPrice(this.cashedContent[id]);
   };
 
-  static canUpgradeItem = (item: Item, money: number): boolean => {
-    return ItemManager.getItemPrice(item) <= money;
+  static canUpgradeItem = (item: Item, follower: number): boolean => {
+    return ItemManager.getItemPrice(item) <= follower;
   };
 
-  canUpgradeItemById = (item_id: number, money: number): boolean => {
-    return ItemManager.canUpgradeItem(this.cashedContent[item_id], money);
+  canUpgradeItemById = (item_id: number, follower: number): boolean => {
+    return ItemManager.canUpgradeItem(this.cashedContent[item_id], follower);
   };
 
   upgradeItemById = (id: number) => {

@@ -3,10 +3,10 @@ interface Items {
   id: number;
   basePrice: number;
   priceMultiplier: number;
-  baseMoneyPerClick: number;
-  moneyPerClickMultiplier: number;
-  baseMoneyPerSecond: number;
-  moneyPerSecondMultiplier: number;
+  baseFollowerPerClick: number;
+  followerPerClickMultiplier: number;
+  baseFollowerPerSecond: number;
+  followerPerSecondMultiplier: number;
   currentLevel: number;
   description: string;
 }

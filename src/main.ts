@@ -4,8 +4,8 @@ import {
   IPC_ITEMS_GET_ALL,
   IPC_ITEM_UPGRADE,
   IPC_ITEMS_UPDATE,
-  IPC_MONEY_GET,
-  IPC_MONEY_UPDATE,
+  IPC_FOLLOWER_GET,
+  IPC_FOLLOWER_UPDATE,
   IPC_INCOME_UPDATE,
 } from './const';
 import Item from './entities/Item';
@@ -93,8 +93,8 @@ const sendItemUpdate = (items: Item[]) => {
   mainWindow?.webContents.send(IPC_ITEMS_UPDATE, items);
 };
 
-const sendMoneyUpdate = (amount: number) => {
-  mainWindow?.webContents.send(IPC_MONEY_UPDATE, amount);
+const sendFollowerUpdate = (amount: number) => {
+  mainWindow?.webContents.send(IPC_FOLLOWER_UPDATE, amount);
 };
 
 const sendIncomeUpdate = (amount: number) => {
@@ -102,13 +102,13 @@ const sendIncomeUpdate = (amount: number) => {
 };
 
 // LISTENER
-ipcMain.on('money-button:clicked', (event) => {
-  accountManager.increaseMoney(incomeManager.getMoneyPerClick());
-  event.reply(IPC_MONEY_UPDATE, accountManager.getMoney());
+ipcMain.on('follower-button:clicked', (event) => {
+  accountManager.increaseFollower(incomeManager.getFollowerPerClick());
+  event.reply(IPC_FOLLOWER_UPDATE, accountManager.getFollower());
 });
 
-ipcMain.on(IPC_MONEY_GET, (event) => {
-  event.reply(IPC_MONEY_UPDATE, accountManager.getMoney());
+ipcMain.on(IPC_FOLLOWER_GET, (event) => {
+  event.reply(IPC_FOLLOWER_UPDATE, accountManager.getFollower());
 });
 
 ipcMain.on(IPC_ITEMS_GET_ALL, (event) => {
@@ -118,31 +118,31 @@ ipcMain.on(IPC_ITEMS_GET_ALL, (event) => {
 ipcMain.on(IPC_ITEM_UPGRADE, (_, id: number) => {
   const item = itemManager.getItem(id);
 
-  if (ItemManager.canUpgradeItem(item, accountManager.getMoney())) {
-    accountManager.decreaseMoney(ItemManager.getItemPrice(item));
-    sendMoneyUpdate(accountManager.getMoney());
+  if (ItemManager.canUpgradeItem(item, accountManager.getFollower())) {
+    accountManager.decreaseFollower(ItemManager.getItemPrice(item));
+    sendFollowerUpdate(accountManager.getFollower());
 
     itemManager.upgradeItem(item);
     sendItemUpdate(itemManager.getItems());
   }
 });
 
-// START MONEY LOOP
+// START Follower LOOP
 
-var moneyAtLastTick = accountManager.getMoney();
+var followerAtLastTick = accountManager.getFollower();
 
-const moneyLoop = () => {
-  const currentMoneyPerSecond = incomeManager.getMoneyPerSecond();
-  const currentMoney = accountManager.getMoney();
+const gameLoop = () => {
+  const currentFollowerPerSecond = incomeManager.getFollowerPerSecond();
+  const currentFollower = accountManager.getFollower();
 
-  accountManager.increaseMoney(currentMoneyPerSecond);
-  sendMoneyUpdate(currentMoney);
+  accountManager.increaseFollower(currentFollowerPerSecond);
+  sendFollowerUpdate(currentFollower);
 
-  sendIncomeUpdate(round(currentMoney - moneyAtLastTick));
+  sendIncomeUpdate(round(currentFollower - followerAtLastTick));
 
-  moneyAtLastTick = currentMoney;
+  followerAtLastTick = currentFollower;
 
-  setTimeout(() => moneyLoop(), 1 * 1000);
+  setTimeout(() => gameLoop(), 1 * 1000);
 };
 
-moneyLoop();
+gameLoop();
