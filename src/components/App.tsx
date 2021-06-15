@@ -1,7 +1,7 @@
 import React from 'react';
 import IncomeDisplay from './IncomeDisplay';
 import ItemContainer from './ItemContainer';
-import FollowerButton from './FollowerButton';
+import MainButton from './MainButton';
 import UpgradeContainer from './UpgradeContainer';
 
 interface Props {}
@@ -11,7 +11,7 @@ const App: React.FC<Props> = () => {
     <div id='main'>
       <ItemContainer />
       <IncomeDisplay />
-      <FollowerButton />
+      <MainButton />
       <UpgradeContainer />
     </div>
   );
