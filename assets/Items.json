@@ -15,7 +15,7 @@
         "name": "PassiveIncomeItem",
         "id": 1,
         "basePrice": 30,
-        "priceMultiplier": 2,
+        "priceMultiplier": 3,
         "baseFollowerPerClick": 0,
         "followerPerClickMultiplier": 0,
         "baseFollowerPerSecond": 2,

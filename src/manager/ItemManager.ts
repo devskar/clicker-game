@@ -21,8 +21,11 @@ class ItemManager extends FileManager {
   };
 
   static getItemPrice = (item: Item) => {
+    console.log(item);
+
     return (
-      item.basePrice + item.currentLevel * item.priceMultiplier * item.basePrice
+      item.basePrice +
+      item.currentLevel * (item.basePrice / 2) * item.priceMultiplier
     );
   };
 
