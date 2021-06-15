@@ -22,9 +22,14 @@ body {
 }
 
 #itemContainer {
-  grid-column: 1 / span 2;
+  grid-column: 1 / span 3;
   grid-row: 1 / span var(--main-row-amount);
-  overflow: hidden;
+
+  overflow: auto;
+}
+
+#itemContainer::-webkit-scrollbar {
+  display: none;
 }
 
 #followerButton {
