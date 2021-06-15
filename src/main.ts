@@ -7,6 +7,7 @@ import {
   IPC_FOLLOWER_GET,
   IPC_FOLLOWER_UPDATE,
   IPC_INCOME_UPDATE,
+  IPC_MAIN_BUTTON_CLICKED,
 } from './const';
 import Item from './entities/Item';
 import AccountManager from './manager/AccountManager';
@@ -102,7 +103,7 @@ const sendIncomeUpdate = (amount: number) => {
 };
 
 // LISTENER
-ipcMain.on('follower-button:clicked', (event) => {
+ipcMain.on(IPC_MAIN_BUTTON_CLICKED, (event) => {
   accountManager.increaseFollower(incomeManager.getFollowerPerClick());
   event.reply(IPC_FOLLOWER_UPDATE, accountManager.getFollower());
 });
