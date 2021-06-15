@@ -1,16 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import { ipcRenderer } from 'electron';
 import { IPC_FOLLOWER_GET, IPC_FOLLOWER_UPDATE } from '../const';
+import image from '../../assets/images/skate-btn-img.png';
 
 interface Props {}
 
 const divStyle: React.CSSProperties = {
-  backgroundColor: 'silver',
+  position: 'relative',
+  textAlign: 'center',
+  overflow: 'hidden',
+  // position: 'relative',
+  // text-align: 'center',
+  // color: 'white',
+  // overflow: 'hidden',
 };
 
 const buttonStyle: React.CSSProperties = {
-  width: '100%',
-  height: '100%',
+  width: '180px',
+  height: '180px',
+};
+
+const tagStyle: React.CSSProperties = {
+  position: 'absolute',
+  top: '40%',
+  left: '50%',
+  transform: 'translate(-40%, -50%)',
 };
 
 const FollowerButton: React.FC<Props> = () => {
@@ -25,15 +39,16 @@ const FollowerButton: React.FC<Props> = () => {
   }, []);
 
   return (
-    <div style={divStyle} id='followerButton'>
-      <button
+    <div style={divStyle} id='followerButton' className='non-selectable'>
+      <img
+        src={image}
+        alt='skateboard'
         onClick={() => {
           ipcRenderer.send('follower-button:clicked');
         }}
         style={buttonStyle}
-      >
-        {followerAmount}
-      </button>
+      ></img>
+      <p style={tagStyle}>{followerAmount}</p>
     </div>
   );
 };
