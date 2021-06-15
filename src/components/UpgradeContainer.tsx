@@ -8,7 +8,7 @@ const divStyle: React.CSSProperties = {
 
 const UpgradeContainer: React.FC<Props> = () => {
   return (
-    <div id='upgradeContainer' style={divStyle} className='nonselectable'>
+    <div id='upgradeContainer' style={divStyle} className='non-selectable'>
       UpgradeContainer
     </div>
   );

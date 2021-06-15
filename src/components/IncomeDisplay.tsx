@@ -1,10 +1,6 @@
 import { ipcRenderer } from 'electron';
 import React, { useEffect, useState } from 'react';
-import {
-  IPC_INCOME_UPDATE,
-  IPC_FOLLOWER_GET,
-  IPC_FOLLOWER_UPDATE,
-} from '../const';
+import { IPC_INCOME_UPDATE } from '../const';
 
 interface Props {}
 
@@ -29,8 +25,9 @@ const IncomeDisplay: React.FC<Props> = () => {
   }, []);
 
   return (
-    <div style={divStyle} id='incomeDisplay' className='nonselectable'>
-      <h1 style={tagStyle}>{income}/sec</h1>
+    <div style={divStyle} id='incomeDisplay' className='non-selectable'>
+      <h1 style={tagStyle}>{income}</h1>
+      <p>Follower/sec</p>
     </div>
   );
 };
