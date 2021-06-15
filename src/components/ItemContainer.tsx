@@ -10,6 +10,10 @@ const divStyle: React.CSSProperties = {
   backgroundColor: 'red',
 };
 
+const tagStyle: React.CSSProperties = {
+  padding: '0.3rem',
+};
+
 const ItemContainer: React.FC<Props> = () => {
   const [itemData, setItemData] = useState<Item[]>();
 
@@ -23,10 +27,14 @@ const ItemContainer: React.FC<Props> = () => {
 
   return (
     <div id='itemContainer' style={divStyle} className='non-selectable'>
-      <h2>Items</h2>
-      {itemData?.map((item) => (
-        <ItemComponent key={item.id} item={item} />
-      ))}
+      <h2 style={tagStyle} className='main-font'>
+        Items
+      </h2>
+      <div>
+        {itemData?.map((item) => (
+          <ItemComponent key={item.id} item={item} />
+        ))}
+      </div>
     </div>
   );
 };

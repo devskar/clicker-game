@@ -7,6 +7,7 @@ interface Props {}
 const divStyle: React.CSSProperties = {
   backgroundColor: 'purple',
   overflow: 'hidden',
+  padding: '0.3rem',
 };
 
 const tagStyle: React.CSSProperties = {

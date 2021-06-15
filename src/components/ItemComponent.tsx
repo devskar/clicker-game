@@ -10,6 +10,7 @@ interface Props {
 
 const divStyle: React.CSSProperties = {
   border: '1px solid black',
+  padding: '0.3rem',
 };
 
 const ItemComponent: React.FC<Props> = ({ item }) => {
