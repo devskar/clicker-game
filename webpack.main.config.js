@@ -6,9 +6,7 @@ const mainRules = rules.concat({
   loader: 'file-loader',
   type: 'javascript/auto',
   options: {
-    name() {
-      return '[path][name].[ext]';
-    }
+    name: '[path][name].[ext]'    
   }
 },)
 
