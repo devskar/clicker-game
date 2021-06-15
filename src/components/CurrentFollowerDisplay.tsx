@@ -9,7 +9,7 @@ const divStyle: React.CSSProperties = {
 };
 
 const tagStyle: React.CSSProperties = {
-  fontFamily: 'Balsamiq Sans',
+  fontSize: '2rem',
 };
 
 const CurrentFollowerDisplay: React.FC<Props> = () => {
@@ -24,8 +24,14 @@ const CurrentFollowerDisplay: React.FC<Props> = () => {
   }, []);
 
   return (
-    <div style={divStyle} id='currentFollowerDisplay'>
-      <p style={tagStyle}>{followerAmount}</p>
+    <div
+      className='non-selectable'
+      style={divStyle}
+      id='currentFollowerDisplay'
+    >
+      <p style={tagStyle} className='main-font'>
+        {followerAmount}
+      </p>
     </div>
   );
 };

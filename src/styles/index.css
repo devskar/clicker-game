@@ -62,3 +62,7 @@ body {
 .non-selectable {
   user-select: none;
 }
+
+.main-font {
+  font-family: 'Balsamiq Sans', cursive;
+}

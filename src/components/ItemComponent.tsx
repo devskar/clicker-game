@@ -21,7 +21,7 @@ const ItemComponent: React.FC<Props> = ({ item }) => {
       style={divStyle}
     >
       <p>{item.name}</p>
-      <p>{item.description}</p>
+      <p className='main-font'>{item.description}</p>
       <p>Level: {item.currentLevel}</p>
       <p>Costs: {ItemManager.getItemPrice(item)}</p>
     </div>
