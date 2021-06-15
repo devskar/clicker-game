@@ -1,0 +1,7 @@
+#mainImage {
+  transition: transform 1s;
+}
+
+#mainButton:hover #mainImage {
+  transform: translateY(-5%);
+}
