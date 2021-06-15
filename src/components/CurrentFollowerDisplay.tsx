@@ -8,6 +8,10 @@ const divStyle: React.CSSProperties = {
   textAlign: 'center',
 };
 
+const tagStyle: React.CSSProperties = {
+  fontFamily: 'Balsamiq Sans',
+};
+
 const CurrentFollowerDisplay: React.FC<Props> = () => {
   const [followerAmount, setFollowerAmount] = useState(0);
 
@@ -21,7 +25,7 @@ const CurrentFollowerDisplay: React.FC<Props> = () => {
 
   return (
     <div style={divStyle} id='currentFollowerDisplay'>
-      <p>{followerAmount}</p>
+      <p style={tagStyle}>{followerAmount}</p>
     </div>
   );
 };
