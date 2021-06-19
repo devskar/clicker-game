@@ -14,6 +14,7 @@ import AccountManager from './manager/AccountManager';
 import IncomeManager from './manager/IncomeManager';
 import ItemManager from './manager/ItemManager';
 import { round } from './utils';
+import Icon from '../assets/images/main.ico';
 declare var MAIN_WINDOW_WEBPACK_ENTRY: any;
 declare var MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY: any;
 
@@ -34,6 +35,7 @@ const createWindow = () => {
     autoHideMenuBar: true,
     show: false,
     resizable: false,
+    icon: Icon,
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,

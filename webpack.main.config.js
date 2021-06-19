@@ -8,6 +8,13 @@ const mainRules = rules.concat({
   options: {
     name: '[path][name].[ext]'    
   }
+},
+{
+  test: /\.ico$/,
+  loader: 'file-loader',
+  options: {
+    name: '[path][name].[ext]'    
+  }
 },)
 
 module.exports = {
