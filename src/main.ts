@@ -8,6 +8,9 @@ import {
   IPC_FOLLOWER_UPDATE,
   IPC_INCOME_UPDATE,
   IPC_MAIN_BUTTON_CLICKED,
+  IPC_UPGRADES_GET_ALL,
+  IPC_UPGRADES_UPDATE,
+  IPC_UPGRADE_BUY,
 } from './const';
 import Item from './entities/Item';
 import AccountManager from './manager/AccountManager';
@@ -16,6 +19,7 @@ import ItemManager from './manager/ItemManager';
 import { round } from './utils';
 import Icon from '../assets/images/main.ico';
 import UpgradeManager from './manager/UpgradeManager';
+import Upgrade from './entities/Upgrade';
 declare var MAIN_WINDOW_WEBPACK_ENTRY: any;
 declare var MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY: any;
 
@@ -98,6 +102,10 @@ const sendItemUpdate = (items: Item[]) => {
   mainWindow?.webContents.send(IPC_ITEMS_UPDATE, items);
 };
 
+const sendUpgradeUpdate = (upgrades: Upgrade[]) => {
+  mainWindow?.webContents.send(IPC_UPGRADES_UPDATE, upgrades);
+};
+
 const sendFollowerUpdate = (amount: number) => {
   mainWindow?.webContents.send(IPC_FOLLOWER_UPDATE, amount);
 };
@@ -112,6 +120,7 @@ ipcMain.on(IPC_MAIN_BUTTON_CLICKED, (event) => {
   event.reply(IPC_FOLLOWER_UPDATE, accountManager.getFollower());
 });
 
+// items
 ipcMain.on(IPC_FOLLOWER_GET, (event) => {
   event.reply(IPC_FOLLOWER_UPDATE, accountManager.getFollower());
 });
@@ -129,6 +138,24 @@ ipcMain.on(IPC_ITEM_UPGRADE, (_, id: number) => {
 
     itemManager.upgradeItem(item);
     sendItemUpdate(itemManager.getItems());
+  }
+});
+
+// upgrades
+
+ipcMain.on(IPC_UPGRADES_GET_ALL, (event) => {
+  event.reply(IPC_UPGRADES_UPDATE, upgradeManager.getUpgrades());
+});
+
+ipcMain.on(IPC_UPGRADE_BUY, (_, id: number) => {
+  const upgrade = upgradeManager.getUpgrade(id);
+
+  if (UpgradeManager.canBuyUpgrade(upgrade, accountManager.getFollower())) {
+    accountManager.decreaseFollower(UpgradeManager.getUpgradePrice(upgrade));
+    sendFollowerUpdate(accountManager.getFollower());
+
+    upgradeManager.buyUpgrade(upgrade);
+    sendUpgradeUpdate(upgradeManager.getUpgrades());
   }
 });
 
