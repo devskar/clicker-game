@@ -1,11 +1,14 @@
 import { round } from '../utils';
 import ItemManager from './ItemManager';
+import UpgradeManager from './UpgradeManager';
 
 class IncomeManager {
   itemManager: ItemManager;
+  upgradeManager: UpgradeManager;
 
-  constructor(ItemManager: ItemManager) {
+  constructor(ItemManager: ItemManager, upgradeManager: UpgradeManager) {
     this.itemManager = ItemManager;
+    this.upgradeManager = upgradeManager;
   }
 
   getFollowerPerSecond() {

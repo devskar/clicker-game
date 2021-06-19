@@ -15,6 +15,7 @@ import IncomeManager from './manager/IncomeManager';
 import ItemManager from './manager/ItemManager';
 import { round } from './utils';
 import Icon from '../assets/images/main.ico';
+import UpgradeManager from './manager/UpgradeManager';
 declare var MAIN_WINDOW_WEBPACK_ENTRY: any;
 declare var MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY: any;
 
@@ -88,8 +89,9 @@ app.on('activate', () => {
 // code. You can also put them in separate files and import them here.
 
 const itemManager = new ItemManager();
+const upgradeManager = new UpgradeManager();
 const accountManager = new AccountManager();
-const incomeManager = new IncomeManager(itemManager);
+const incomeManager = new IncomeManager(itemManager, upgradeManager);
 
 // SENDER
 const sendItemUpdate = (items: Item[]) => {

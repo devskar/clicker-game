@@ -1,4 +1,5 @@
 export const ITEMS_FILE_PATH = __dirname + '/assets/Items.json';
+export const UPGRADES_FILE_PATH = __dirname + '/assets/Upgrades.json';
 export const ACCOUNT_FILE_PATH = __dirname + '/assets/Account.json';
 
 // IPC MESSAGES

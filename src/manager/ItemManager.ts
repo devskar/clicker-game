@@ -7,7 +7,7 @@ class ItemManager extends FileManager {
   constructor() {
     super(ITEMS_FILE_PATH);
 
-    // make item file known to webpack
+    // // make item file known to webpack
     itemFile;
   }
 
