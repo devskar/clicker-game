@@ -1,0 +1,29 @@
+[
+    {
+        "name": "money per second doubler",
+        "id": 0,
+        "price": 100,
+        "bought": false,
+        "moneyPerSecondMultiplier": 2,
+        "moneyPerClickMultiplier": 1,
+        "description": "Doubles your money per second permanently."
+    },
+    {
+        "name": "money per click doubler",
+        "id": 1,
+        "price": 100,
+        "bought": false,
+        "moneyPerSecondMultiplier": 1,
+        "moneyPerClickMultiplier": 2,
+        "description": "Doubles your money per click permanently."
+    },
+    {
+        "name": "money doubler",
+        "id": 2,
+        "price": 100,
+        "bought": false,
+        "moneyPerSecondMultiplier": 2,
+        "moneyPerClickMultiplier": 2,
+        "description": "Doubles your money permanently."
+    }
+]
