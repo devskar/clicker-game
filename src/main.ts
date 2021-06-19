@@ -142,7 +142,6 @@ ipcMain.on(IPC_ITEM_UPGRADE, (_, id: number) => {
 });
 
 // upgrades
-
 ipcMain.on(IPC_UPGRADES_GET_ALL, (event) => {
   event.reply(IPC_UPGRADES_UPDATE, upgradeManager.getUpgrades());
 });
