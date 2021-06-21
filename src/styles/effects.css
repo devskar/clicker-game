@@ -5,3 +5,7 @@
 #mainButton:hover #mainImage {
   transform: translateY(-5%);
 }
+
+.itemComponent:hover {
+  border-color: gold;
+}
