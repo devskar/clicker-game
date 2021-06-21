@@ -8,18 +8,13 @@ interface Props {
   item: Item;
 }
 
-const divStyle: React.CSSProperties = {
-  border: '1px solid black',
-  padding: '0.3rem',
-};
-
 const ItemComponent: React.FC<Props> = ({ item }) => {
   return (
     <div
       onClick={() => {
         ipcRenderer.send(IPC_ITEM_UPGRADE, item.id);
       }}
-      style={divStyle}
+      className='itemComponent component'
     >
       <p>{item.name}</p>
       <p className='main-font'>{item.description}</p>

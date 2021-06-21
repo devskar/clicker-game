@@ -6,7 +6,11 @@ interface Props {
 }
 
 const UpgradeComponent: React.FC<Props> = ({ upgrade }) => {
-  return <p>{upgrade.name}</p>;
+  return (
+    <div className='upgradeComponent component'>
+      <p>{upgrade.name}</p>
+    </div>
+  );
 };
 
 export default UpgradeComponent;
