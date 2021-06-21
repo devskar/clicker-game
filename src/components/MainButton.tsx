@@ -2,7 +2,6 @@ import React, { useRef } from 'react';
 import { ipcRenderer } from 'electron';
 import { IPC_MAIN_BUTTON_CLICKED } from '../const';
 import image from '../../assets/images/main.svg';
-import '../styles/animations.css';
 
 interface Props {}
 
