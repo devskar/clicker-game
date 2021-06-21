@@ -6,6 +6,24 @@
   border: 1px solid black;
 }
 
+.itemHeading {
+  word-spacing: 0.3rem;
+  letter-spacing: 0.025rem;
+}
+
+.itemStats {
+  display: flex;
+  width: 100%;
+}
+
+.itemStat {
+  width: 50%;
+}
+
+.itemStat > .key {
+  font-size: 0.9rem;
+}
+
 .upgradeComponent {
   border: 1px solid black;
 }

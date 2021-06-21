@@ -17,9 +17,19 @@ const ItemComponent: React.FC<Props> = ({ item }) => {
       className='itemComponent component'
     >
       <p>{item.name}</p>
-      <p className='main-font'>{item.description}</p>
-      <p>Level: {item.currentLevel}</p>
-      <p>Costs: {ItemManager.getItemPrice(item)}</p>
+      <p className='itemHeading main-font'>{item.description}</p>
+      <div className='itemStats'>
+        <div className='itemLevel itemStat'>
+          <span className='key'>level: </span>
+          <span className='value main-font'>{item.currentLevel}</span>
+        </div>
+        <div className='itemCosts itemStat'>
+          <span className='key'>costs: </span>
+          <span className='value main-font'>
+            {ItemManager.getItemPrice(item)}
+          </span>
+        </div>
+      </div>
     </div>
   );
 };
