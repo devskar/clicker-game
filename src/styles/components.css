@@ -1,0 +1,11 @@
+.component {
+  padding: 0.3rem;
+}
+
+.itemComponent {
+  border: 1px solid black;
+}
+
+.upgradeComponent {
+  border: 1px solid black;
+}
