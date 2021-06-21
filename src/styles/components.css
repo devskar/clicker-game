@@ -50,15 +50,12 @@
 .upgradeComponentImage:hover ~ .upgradeHoverDiv {
   display: block;
   position: absolute;
-  top: 0;
+  top: -0.15rem;
   right: 0;
 }
 
 .upgradeComponentImage:hover {
   display: block;
-  position: absolute;
-  top: 0;
-  right: 0;
 
   z-index: 2;
 }
@@ -78,10 +75,16 @@
 .upgradeHoverDiv {
   background-color: black;
   color: white;
-  border: 1px solid gray;
+  border: 2px solid gray;
+
+  padding: 0.3rem;
 
   min-height: 6rem;
   width: 15rem;
 
   z-index: 1;
+}
+
+.upgradeHoverDiv > p {
+  margin-block-start: 0;
 }
