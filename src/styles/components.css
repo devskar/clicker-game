@@ -1,9 +1,6 @@
+/* POSITIONING  */
 .component {
   padding: 0.3rem;
-}
-
-.itemComponent {
-  border: 1px solid black;
 }
 
 .itemHeading {
@@ -23,6 +20,48 @@
   font-size: 0.9rem;
 }
 
+.upgradeComponentContainer {
+  display: grid;
+  padding: 0.3rem;
+  grid-template-columns: repeat(3, calc(100% / 3));
+}
+
 .upgradeComponent {
+  position: relative;
+}
+
+.upgradeComponentImage {
+  padding-right: auto;
+  display: block;
+}
+
+.upgradeHoverDiv {
+  display: none;
+}
+
+.upgradeComponentImage:hover ~ .upgradeHoverDiv {
+  display: block;
+  position: absolute;
+  top: 0;
+}
+
+/* DESIGN */
+
+.itemComponent {
   border: 1px solid black;
+}
+
+.upgradeComponentImage {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.upgradeHoverDiv {
+  background-color: black;
+  color: white;
+  border: 1px solid gray;
+  z-index: 1;
+
+  min-height: 6rem;
+  width: 10rem;
 }

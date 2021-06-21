@@ -14,6 +14,8 @@ const tagStyle: React.CSSProperties = {
   padding: '0.3rem',
 };
 
+const colors = ['purple', 'white', 'silver', 'brown'];
+
 const UpgradeContainer: React.FC<Props> = () => {
   const [upgradeData, setUpgradeData] = useState<Upgrade[]>();
 
@@ -30,9 +32,13 @@ const UpgradeContainer: React.FC<Props> = () => {
       <h2 style={tagStyle} className='main-font'>
         Upgrades
       </h2>
-      <div>
+      <div className='upgradeComponentContainer'>
         {upgradeData?.map((upgrade) => (
-          <UpgradeComponent key={upgrade.id} upgrade={upgrade} />
+          <UpgradeComponent
+            color={colors[upgrade.id]}
+            key={upgrade.id}
+            upgrade={upgrade}
+          />
         ))}
       </div>
     </div>
