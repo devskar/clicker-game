@@ -34,5 +34,39 @@
         "moneyPerSecondMultiplier": 3,
         "moneyPerClickMultiplier": 3,
         "description": "Triples your money permanently."
+    },
+    {
+        "name": "money tripler",
+        "id": 4,
+        "price": 100,
+        "bought": false,
+        "moneyPerSecondMultiplier": 3,
+        "moneyPerClickMultiplier": 3,
+        "description": "Triples your money permanently."
+    },    {
+        "name": "money tripler",
+        "id": 5,
+        "price": 100,
+        "bought": false,
+        "moneyPerSecondMultiplier": 3,
+        "moneyPerClickMultiplier": 3,
+        "description": "Triples your money permanently."
+    },    
+    {
+        "name": "money tripler",
+        "id": 6,
+        "price": 100,
+        "bought": false,
+        "moneyPerSecondMultiplier": 3,
+        "moneyPerClickMultiplier": 3,
+        "description": "Triples your money permanently."
+    },    {
+        "name": "money tripler",
+        "id": 7,
+        "price": 100,
+        "bought": false,
+        "moneyPerSecondMultiplier": 3,
+        "moneyPerClickMultiplier": 3,
+        "description": "Triples your money permanently."
     }
 ]

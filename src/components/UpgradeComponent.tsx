@@ -13,10 +13,7 @@ const UpgradeComponent: React.FC<Props> = ({ upgrade, color }) => {
         className='upgradeComponentImage'
         style={{ backgroundColor: color }}
       ></img>
-      <div
-        className='upgradeHoverDiv'
-        style={{ backgroundColor: 'black', color: 'white' }}
-      >
+      <div className='upgradeHoverDiv'>
         <p>{upgrade.name}</p>
         <p className='upgradeDescription main-font'>{upgrade.description}</p>
         <div className='upgradeStats'>

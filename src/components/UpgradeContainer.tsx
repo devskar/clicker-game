@@ -14,7 +14,16 @@ const tagStyle: React.CSSProperties = {
   padding: '0.3rem',
 };
 
-const colors = ['purple', 'white', 'silver', 'brown'];
+const colors = [
+  'purple',
+  'white',
+  'silver',
+  'brown',
+  'purple',
+  'white',
+  'silver',
+  'brown',
+];
 
 const UpgradeContainer: React.FC<Props> = () => {
   const [upgradeData, setUpgradeData] = useState<Upgrade[]>();

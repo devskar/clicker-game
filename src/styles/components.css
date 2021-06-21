@@ -36,23 +36,31 @@
 
 .upgradeComponentImage {
   padding-right: auto;
+  position: relative;
   display: block;
+  padding: 10;
 }
 
 .upgradeHoverDiv {
   display: none;
+  background-color: black;
+  color: white;
 }
 
 .upgradeComponentImage:hover ~ .upgradeHoverDiv {
   display: block;
   position: absolute;
   top: 0;
+  right: 0;
 }
 
-.upgradeHoverDiv:hover {
+.upgradeComponentImage:hover {
   display: block;
   position: absolute;
   top: 0;
+  right: 0;
+
+  z-index: 2;
 }
 
 /* DESIGN */
@@ -64,14 +72,16 @@
 .upgradeComponentImage {
   width: 2.5rem;
   height: 2.5rem;
+  z-index: 0;
 }
 
 .upgradeHoverDiv {
   background-color: black;
   color: white;
   border: 1px solid gray;
-  z-index: 1;
 
   min-height: 6rem;
-  width: 10rem;
+  width: 15rem;
+
+  z-index: 1;
 }
