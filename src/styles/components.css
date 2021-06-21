@@ -3,20 +3,24 @@
   padding: 0.3rem;
 }
 
-.itemHeading {
+.itemDescription,
+.upgradeDescription {
   word-spacing: 0.3rem;
   letter-spacing: 0.025rem;
 }
 
-.itemStats {
+.itemStats,
+.upgradeStats {
   display: flex;
 }
 
-.itemStat {
+.itemStat,
+.upgradeStat {
   width: 50%;
 }
 
-.itemStat > .key {
+.itemStat > .key,
+.upgradeStat > .key {
   font-size: 0.9rem;
 }
 
@@ -40,6 +44,12 @@
 }
 
 .upgradeComponentImage:hover ~ .upgradeHoverDiv {
+  display: block;
+  position: absolute;
+  top: 0;
+}
+
+.upgradeHoverDiv:hover {
   display: block;
   position: absolute;
   top: 0;

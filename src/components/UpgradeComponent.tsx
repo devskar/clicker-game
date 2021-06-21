@@ -17,7 +17,20 @@ const UpgradeComponent: React.FC<Props> = ({ upgrade, color }) => {
         className='upgradeHoverDiv'
         style={{ backgroundColor: 'black', color: 'white' }}
       >
-        test
+        <p>{upgrade.name}</p>
+        <p className='upgradeDescription main-font'>{upgrade.description}</p>
+        <div className='upgradeStats'>
+          <div className='upgradeLevel upgradeStat'>
+            <span className='key'>bought: </span>
+            <span className='value main-font'>
+              {upgrade.bought ? 'yes' : 'no'}
+            </span>
+          </div>
+          <div className='upgradeCosts upgradeStat'>
+            <span className='key'>costs: </span>
+            <span className='value main-font'>{upgrade.price}</span>
+          </div>
+        </div>
       </div>
     </div>
   );

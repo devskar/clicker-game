@@ -17,7 +17,7 @@ const ItemComponent: React.FC<Props> = ({ item }) => {
       className='itemComponent component'
     >
       <p>{item.name}</p>
-      <p className='itemHeading main-font'>{item.description}</p>
+      <p className='itemDescription main-font'>{item.description}</p>
       <div className='itemStats'>
         <div className='itemLevel itemStat'>
           <span className='key'>level: </span>

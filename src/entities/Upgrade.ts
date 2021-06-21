@@ -5,6 +5,7 @@ export interface Upgrade {
   bought: boolean;
   moneyPerSecondMultiplier: number;
   moneyPerClickMultiplier: number;
+  description: string;
 }
 
 export default Upgrade;
