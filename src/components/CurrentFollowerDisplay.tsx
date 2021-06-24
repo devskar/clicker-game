@@ -25,9 +25,9 @@ const CurrentFollowerDisplay: React.FC<Props> = () => {
 
   return (
     <div
+      id='currentFollowerDisplay'
       className='non-selectable'
       style={divStyle}
-      id='currentFollowerDisplay'
     >
       <p style={tagStyle} className='main-font'>
         {followerAmount}
