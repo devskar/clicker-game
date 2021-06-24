@@ -1,3 +1,5 @@
+/* MAIN BUTTON JUMP ANIMATION */
+
 #mainImage {
   transition: transform 1s;
 }
@@ -6,6 +8,22 @@
   transform: translateY(-5%);
 }
 
+/* ITEMS HOVER */
+
 .itemComponent:hover {
   border-color: gold;
+}
+
+/* UPGRADES HOVER */
+
+.upgradeComponentImage:hover {
+  display: block;
+  z-index: 2;
+}
+
+.upgradeComponentImage:hover ~ .upgradeHoverDiv {
+  display: block;
+  position: absolute;
+  top: -0.15rem;
+  right: 0;
 }

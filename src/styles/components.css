@@ -47,19 +47,6 @@
   color: white;
 }
 
-.upgradeComponentImage:hover ~ .upgradeHoverDiv {
-  display: block;
-  position: absolute;
-  top: -0.15rem;
-  right: 0;
-}
-
-.upgradeComponentImage:hover {
-  display: block;
-
-  z-index: 2;
-}
-
 /* DESIGN */
 
 .itemComponent {
@@ -75,7 +62,7 @@
 .upgradeHoverDiv {
   background-color: black;
   color: white;
-  border: 2px solid gray;
+  /* border: 2px solid gray; */
 
   padding: 0.3rem;
 
