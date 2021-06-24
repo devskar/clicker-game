@@ -40,7 +40,7 @@ class UpgradeManager extends FileManager {
   };
 
   buyUpgradeById = (id: number) => {
-    this.cashedContent[id].currentLevel += 1;
+    this.cashedContent[id].bought = true;
   };
 
   buyUpgrade = (item: Upgrade) => {

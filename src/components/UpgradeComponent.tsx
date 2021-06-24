@@ -1,4 +1,6 @@
+import { ipcRenderer } from 'electron';
 import React from 'react';
+import { IPC_UPGRADE_BUY } from '../const';
 import Upgrade from '../entities/Upgrade';
 
 interface Props {
@@ -10,8 +12,13 @@ const UpgradeComponent: React.FC<Props> = ({ upgrade, color }) => {
   return (
     <div className='upgradeComponent component'>
       <img
-        className='upgradeComponentImage'
+        className={
+          'upgradeComponentImage' + (upgrade.bought ? ' upgradeBought' : '')
+        }
         style={{ backgroundColor: color }}
+        onClick={() => {
+          if (!upgrade.bought) ipcRenderer.send(IPC_UPGRADE_BUY, upgrade.id);
+        }}
       ></img>
       <div className='upgradeHoverDiv'>
         <p>{upgrade.name}</p>

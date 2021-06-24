@@ -75,3 +75,8 @@
 .upgradeHoverDiv > p {
   margin-block-start: 0;
 }
+
+.upgradeBought {
+  background-color: green;
+  opacity: 0.6;
+}
