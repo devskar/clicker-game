@@ -26,12 +26,6 @@ body {
 #itemContainer {
   grid-column: 1 / span 3;
   grid-row: 1 / span var(--main-row-amount);
-
-  overflow: auto;
-}
-
-#itemContainer::-webkit-scrollbar {
-  display: none;
 }
 
 #currentFollowerDisplay {
@@ -65,4 +59,12 @@ body {
 
 .main-font {
   font-family: 'Balsamiq Sans', cursive;
+}
+
+.scrollable {
+  overflow: auto;
+}
+
+.scrollable::-webkit-scrollbar {
+  display: none;
 }

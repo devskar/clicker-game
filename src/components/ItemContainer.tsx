@@ -22,7 +22,7 @@ const ItemContainer: React.FC<Props> = () => {
   }, []);
 
   return (
-    <div id='itemContainer' className='non-selectable'>
+    <div id='itemContainer' className='non-selectable scrollable'>
       <h2 style={tagStyle} className='main-font'>
         Items
       </h2>

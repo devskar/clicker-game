@@ -46,5 +46,17 @@
         "followerPerSecondMultiplier": 2,
         "currentLevel": 0,
         "description": "This is item increases your follower per second and clicks."
+    },
+    {
+        "name": "RandomItem",
+        "id": 3,
+        "basePrice": 400,
+        "priceMultiplier": 3,
+        "baseFollowerPerClick": 0,
+        "followerPerClickMultiplier": 2,
+        "baseFollowerPerSecond": 4,
+        "followerPerSecondMultiplier": 2,
+        "currentLevel": 0,
+        "description": "This is item increases your follower per second and clicks."
     }
 ]
