@@ -15,13 +15,18 @@ class IncomeManager {
     let followerPerSecond: number = 0;
 
     for (const item of this.itemManager.getItems()) {
-      if (item.currentLevel > 0) {
+      if (item.currentLevel > 0 && item.baseFollowerPerSecond > 0) {
         followerPerSecond +=
           item.baseFollowerPerSecond +
           item.currentLevel *
             item.followerPerSecondMultiplier *
             item.baseFollowerPerSecond;
       }
+    }
+
+    for (const upgrade of this.upgradeManager.getUpgrades()) {
+      if (upgrade.bought && upgrade.moneyPerSecondMultiplier > 0)
+        followerPerSecond *= upgrade.moneyPerSecondMultiplier;
     }
 
     return round(followerPerSecond);
@@ -31,13 +36,18 @@ class IncomeManager {
     let followerPerClick: number = 1;
 
     for (const item of this.itemManager.getItems()) {
-      if (item.currentLevel > 0) {
+      if (item.currentLevel > 0 && item.baseFollowerPerClick > 0) {
         const toBeAdded =
           item.baseFollowerPerClick *
           ((item.currentLevel - 1) * item.followerPerClickMultiplier);
 
         followerPerClick += toBeAdded >= 1 ? toBeAdded : 1;
       }
+    }
+
+    for (const upgrade of this.upgradeManager.getUpgrades()) {
+      if (upgrade.bought && upgrade.moneyPerClickMultiplier > 0)
+        followerPerClick *= upgrade.moneyPerClickMultiplier;
     }
 
     return round(followerPerClick);
