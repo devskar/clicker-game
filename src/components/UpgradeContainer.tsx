@@ -6,24 +6,9 @@ import UpgradeComponent from './UpgradeComponent';
 
 interface Props {}
 
-const divStyle: React.CSSProperties = {
-  backgroundColor: 'green',
-};
-
 const tagStyle: React.CSSProperties = {
   padding: '0.3rem',
 };
-
-const colors = [
-  'purple',
-  'white',
-  'silver',
-  'brown',
-  'purple',
-  'white',
-  'silver',
-  'brown',
-];
 
 const UpgradeContainer: React.FC<Props> = () => {
   const [upgradeData, setUpgradeData] = useState<Upgrade[]>();
@@ -37,17 +22,13 @@ const UpgradeContainer: React.FC<Props> = () => {
   }, []);
 
   return (
-    <div id='upgradeContainer' style={divStyle} className='non-selectable'>
+    <div id='upgradeContainer' className='non-selectable'>
       <h2 style={tagStyle} className='main-font'>
         Upgrades
       </h2>
       <div className='upgradeComponentContainer'>
         {upgradeData?.map((upgrade) => (
-          <UpgradeComponent
-            color={colors[upgrade.id]}
-            key={upgrade.id}
-            upgrade={upgrade}
-          />
+          <UpgradeComponent key={upgrade.id} upgrade={upgrade} />
         ))}
       </div>
     </div>

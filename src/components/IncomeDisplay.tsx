@@ -5,7 +5,6 @@ import { IPC_INCOME_UPDATE } from '../const';
 interface Props {}
 
 const divStyle: React.CSSProperties = {
-  backgroundColor: 'purple',
   overflow: 'hidden',
   padding: '0.3rem',
 };

@@ -6,10 +6,6 @@ import ItemComponent from './ItemComponent';
 
 interface Props {}
 
-const divStyle: React.CSSProperties = {
-  backgroundColor: 'red',
-};
-
 const tagStyle: React.CSSProperties = {
   padding: '0.3rem',
 };
@@ -26,7 +22,7 @@ const ItemContainer: React.FC<Props> = () => {
   }, []);
 
   return (
-    <div id='itemContainer' style={divStyle} className='non-selectable'>
+    <div id='itemContainer' className='non-selectable'>
       <h2 style={tagStyle} className='main-font'>
         Items
       </h2>

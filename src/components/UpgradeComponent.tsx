@@ -5,17 +5,16 @@ import Upgrade from '../entities/Upgrade';
 
 interface Props {
   upgrade: Upgrade;
-  color: string;
 }
 
-const UpgradeComponent: React.FC<Props> = ({ upgrade, color }) => {
+const UpgradeComponent: React.FC<Props> = ({ upgrade }) => {
   return (
     <div className='upgradeComponent component'>
       <img
         className={
           'upgradeComponentImage' + (upgrade.bought ? ' upgradeBought' : '')
         }
-        style={{ backgroundColor: color }}
+        style={{ backgroundColor: 'gray' }}
         onClick={() => {
           if (!upgrade.bought) ipcRenderer.send(IPC_UPGRADE_BUY, upgrade.id);
         }}
