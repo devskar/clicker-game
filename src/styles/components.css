@@ -43,8 +43,6 @@
 
 .upgradeHoverDiv {
   display: none;
-  background-color: black;
-  color: white;
 }
 
 /* DESIGN */
@@ -60,11 +58,12 @@
 }
 
 .upgradeHoverDiv {
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.6);
   color: white;
   /* border: 2px solid gray; */
 
   padding: 0.3rem;
+  padding-right: 1.5rem;
 
   min-height: 6rem;
   width: 15rem;
