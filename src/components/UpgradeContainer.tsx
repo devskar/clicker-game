@@ -6,10 +6,6 @@ import UpgradeComponent from './UpgradeComponent';
 
 interface Props {}
 
-const tagStyle: React.CSSProperties = {
-  padding: '0.3rem',
-};
-
 const UpgradeContainer: React.FC<Props> = () => {
   const [upgradeData, setUpgradeData] = useState<Upgrade[]>();
 
@@ -23,9 +19,7 @@ const UpgradeContainer: React.FC<Props> = () => {
 
   return (
     <div id='upgradeContainer' className='non-selectable'>
-      <h2 style={tagStyle} className='main-font'>
-        Upgrades
-      </h2>
+      <h2 className='main-font containerHeading'>Upgrades</h2>
       <div className='upgradeComponentContainer'>
         {upgradeData?.map((upgrade) => (
           <UpgradeComponent key={upgrade.id} upgrade={upgrade} />

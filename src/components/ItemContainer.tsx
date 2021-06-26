@@ -8,6 +8,7 @@ interface Props {}
 
 const tagStyle: React.CSSProperties = {
   padding: '0.3rem',
+  textAlign: 'center',
 };
 
 const ItemContainer: React.FC<Props> = () => {
@@ -23,9 +24,7 @@ const ItemContainer: React.FC<Props> = () => {
 
   return (
     <div id='itemContainer' className='non-selectable scrollable'>
-      <h2 style={tagStyle} className='main-font'>
-        Items
-      </h2>
+      <h2 className='main-font containerHeading'>Items</h2>
       <div>
         {itemData?.map((item) => (
           <ItemComponent key={item.id} item={item} />
