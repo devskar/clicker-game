@@ -21,9 +21,8 @@ class ItemManager extends FileManager {
   };
 
   static getItemPrice = (item: Item) => {
-    return (
-      item.basePrice +
-      item.currentLevel * (item.basePrice / 2) * item.priceMultiplier
+    return Math.round(
+      item.basePrice * item.priceMultiplier ** item.currentLevel,
     );
   };
 
