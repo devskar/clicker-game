@@ -1,6 +1,6 @@
 [
     {
-        "name": "ClickItem",
+        "name": "Ollie",
         "id": 0,
         "basePrice": 10,
         "priceMultiplier": 2,
@@ -9,10 +9,10 @@
         "baseFollowerPerSecond": 0,
         "followerPerSecondMultiplier": 0,
         "currentLevel": 0,
-        "description": "This item increases your follower per click."
+        "description": "Practice your ollie and impress more follower while skating."
     },
     {
-        "name": "PassiveIncomeItem",
+        "name": "KickFlip",
         "id": 1,
         "basePrice": 30,
         "priceMultiplier": 3,
@@ -21,10 +21,10 @@
         "baseFollowerPerSecond": 2,
         "followerPerSecondMultiplier": 0,
         "currentLevel": 0,
-        "description": "This is item increases your follower per second."
+        "description": "Work on your kickflip skills and earn more passive follower."
     },
     {
-        "name": "PassiveIncomeAndClickItem",
+        "name": "TreFlip",
         "id": 2,
         "basePrice": 100,
         "priceMultiplier": 3,
@@ -33,10 +33,10 @@
         "baseFollowerPerSecond": 4,
         "followerPerSecondMultiplier": 2,
         "currentLevel": 0,
-        "description": "This is item increases your follower per second and clicks."
+        "description": "Learning the treflip will draw a lot of attention in your local skate community."
     },
     {
-        "name": "RandomItem",
+        "name": "LaserFlip",
         "id": 3,
         "basePrice": 400,
         "priceMultiplier": 3,
@@ -45,18 +45,6 @@
         "baseFollowerPerSecond": 4,
         "followerPerSecondMultiplier": 2,
         "currentLevel": 0,
-        "description": "This is item increases your follower per second and clicks."
-    },
-    {
-        "name": "RandomItem",
-        "id": 3,
-        "basePrice": 400,
-        "priceMultiplier": 3,
-        "baseFollowerPerClick": 0,
-        "followerPerClickMultiplier": 2,
-        "baseFollowerPerSecond": 4,
-        "followerPerSecondMultiplier": 2,
-        "currentLevel": 0,
-        "description": "This is item increases your follower per second and clicks."
+        "description": "The laserflip will get draw attention not just in your local area. Go learn it!"
     }
 ]
