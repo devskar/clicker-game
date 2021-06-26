@@ -49,9 +49,11 @@
 
 .itemComponent {
   border: 1px solid black;
+  background-color: rgba(128, 128, 128, 0.5);
 }
 
 .upgradeComponentImage {
+  background-color: gray; /* TODO: Image */
   width: 2.5rem;
   height: 2.5rem;
   z-index: 0;
@@ -60,7 +62,6 @@
 .upgradeHoverDiv {
   background-color: rgba(0, 0, 0, 0.6);
   color: white;
-  /* border: 2px solid gray; */
 
   padding: 0.3rem;
   padding-right: 1.5rem;
@@ -76,6 +77,5 @@
 }
 
 .upgradeBought {
-  background-color: green;
-  opacity: 0.6;
+  background-color: rgba(0, 128, 0, 0.6);
 }

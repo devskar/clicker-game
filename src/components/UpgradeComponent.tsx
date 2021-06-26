@@ -14,7 +14,6 @@ const UpgradeComponent: React.FC<Props> = ({ upgrade }) => {
         className={
           'upgradeComponentImage' + (upgrade.bought ? ' upgradeBought' : '')
         }
-        style={{ backgroundColor: 'gray' }}
         onClick={() => {
           if (!upgrade.bought) ipcRenderer.send(IPC_UPGRADE_BUY, upgrade.id);
         }}
