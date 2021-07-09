@@ -11,6 +11,8 @@ import {
   IPC_UPGRADES_GET_ALL,
   IPC_UPGRADES_UPDATE,
   IPC_UPGRADE_BUY,
+  IPC_LANGUAGE_UPDATE,
+  IPC_LANGUAGE_CHANGE,
 } from './const';
 import Item from './entities/Item';
 import AccountManager from './manager/AccountManager';
@@ -98,6 +100,10 @@ const accountManager = new AccountManager();
 const incomeManager = new IncomeManager(itemManager, upgradeManager);
 
 // SENDER
+const sendLanguageUpdate = (language: string) => {
+  mainWindow?.webContents.send(IPC_LANGUAGE_UPDATE, language);
+};
+
 const sendItemUpdate = (items: Item[]) => {
   mainWindow?.webContents.send(IPC_ITEMS_UPDATE, items);
 };
@@ -115,6 +121,10 @@ const sendIncomeUpdate = (amount: number) => {
 };
 
 // LISTENER
+ipcMain.on(IPC_LANGUAGE_CHANGE, (event, language: string) => {
+  sendLanguageUpdate(language);
+});
+
 ipcMain.on(IPC_MAIN_BUTTON_CLICKED, (event) => {
   accountManager.increaseFollower(incomeManager.getFollowerPerClick());
   event.reply(IPC_FOLLOWER_UPDATE, accountManager.getFollower());

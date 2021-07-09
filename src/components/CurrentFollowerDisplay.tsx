@@ -1,6 +1,10 @@
 import { ipcRenderer } from 'electron';
 import React, { useEffect, useState } from 'react';
-import { IPC_FOLLOWER_GET, IPC_FOLLOWER_UPDATE } from '../const';
+import {
+  IPC_FOLLOWER_GET,
+  IPC_FOLLOWER_UPDATE,
+  IPC_LANGUAGE_CHANGE,
+} from '../const';
 
 interface Props {}
 
@@ -28,6 +32,9 @@ const CurrentFollowerDisplay: React.FC<Props> = () => {
       id='currentFollowerDisplay'
       className='non-selectable'
       style={divStyle}
+      onClick={() => {
+        ipcRenderer.send(IPC_LANGUAGE_CHANGE, 'de');
+      }}
     >
       <p style={tagStyle} className='main-font'>
         {followerAmount}

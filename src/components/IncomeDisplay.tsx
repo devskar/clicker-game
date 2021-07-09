@@ -1,5 +1,6 @@
 import { ipcRenderer } from 'electron';
 import React, { useEffect, useState } from 'react';
+import { FormattedMessage } from 'react-intl';
 import { IPC_INCOME_UPDATE } from '../const';
 
 interface Props {}
@@ -31,7 +32,9 @@ const IncomeDisplay: React.FC<Props> = () => {
       className='non-selectable main-font'
     >
       <h1 style={tagStyle}>{income}</h1>
-      <p>Follower/sec</p>
+      <p>
+        <FormattedMessage id='app.text' />
+      </p>
     </div>
   );
 };
