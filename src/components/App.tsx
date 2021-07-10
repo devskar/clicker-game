@@ -8,6 +8,7 @@ import CurrentFollowerDisplay from './CurrentFollowerDisplay';
 import { IntlProvider } from 'react-intl';
 import { ipcRenderer } from 'electron';
 import { IPC_LANGUAGE_GET, IPC_LANGUAGE_UPDATE, LANGUAGES } from '../const';
+import SettingsContainer from './SettingsContainer';
 
 interface Props {}
 
@@ -37,6 +38,7 @@ const App: React.FC<Props> = () => {
         <CurrentFollowerDisplay />
         <MainButton />
         <UpgradeContainer />
+        <SettingsContainer />
       </IntlProvider>
     </div>
   );

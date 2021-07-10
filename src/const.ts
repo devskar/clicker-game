@@ -19,6 +19,7 @@ export const IPC_MAIN_BUTTON_CLICKED = 'mainButton:clicked';
 export const IPC_LANGUAGE_CHANGE = 'language:change';
 export const IPC_LANGUAGE_UPDATE = 'language:update';
 export const IPC_LANGUAGE_GET = 'language:get';
+export const IPC_SETTINGSWINDOW_OPEN = 'settingswindow:open';
 
 export const LANGUAGES = new Map<string, Record<string, string>>([
   ['en-US', enUSMessages],

@@ -6,11 +6,6 @@ import ItemComponent from './ItemComponent';
 
 interface Props {}
 
-const tagStyle: React.CSSProperties = {
-  padding: '0.3rem',
-  textAlign: 'center',
-};
-
 const ItemContainer: React.FC<Props> = () => {
   const [itemData, setItemData] = useState<Item[]>();
 

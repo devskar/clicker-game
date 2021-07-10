@@ -51,7 +51,12 @@ body {
 
 #upgradeContainer {
   grid-column: 11 / span 12;
-  grid-row: 1 / span var(--main-row-amount);
+  grid-row: 1 / span calc(var(--main-row-amount) - 1);
+}
+
+#settingsContainer {
+  grid-column: 11 / span 12;
+  grid-row: var(--main-row-amount);
 }
 
 .non-selectable {

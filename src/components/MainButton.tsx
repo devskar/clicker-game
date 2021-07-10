@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { ipcRenderer } from 'electron';
 import { IPC_MAIN_BUTTON_CLICKED } from '../const';
 import image from '../../assets/images/main.svg';
@@ -18,12 +18,9 @@ const buttonStyle: React.CSSProperties = {
 };
 
 const MainButton: React.FC<Props> = () => {
-  const divRef = useRef<HTMLImageElement>(null);
-
   return (
     <div style={divStyle} id='mainButton' className='non-selectable'>
       <img
-        ref={divRef}
         src={image}
         id='mainImage'
         alt='skateboard'
