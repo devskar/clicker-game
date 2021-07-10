@@ -56,6 +56,8 @@ body {
 
 .non-selectable {
   user-select: none;
+  -moz-user-drag: none;
+  -webkit-user-drag: none;
 }
 
 .main-font {

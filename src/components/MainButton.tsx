@@ -27,6 +27,7 @@ const MainButton: React.FC<Props> = () => {
         src={image}
         id='mainImage'
         alt='skateboard'
+        className='non-selectable'
         onClick={() => {
           ipcRenderer.send(IPC_MAIN_BUTTON_CLICKED);
         }}
