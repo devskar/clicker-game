@@ -1,6 +1,7 @@
 import { ipcRenderer } from 'electron';
 import React from 'react';
 import image from '../../assets/images/settings/settings_icon.png';
+import { IPC_SETTINGSWINDOW_OPEN } from '../const';
 
 interface Props {}
 
@@ -31,7 +32,9 @@ const SettingsContainer: React.FC<Props> = () => {
           alt='skateboard'
           className='non-selectable'
           style={buttonStyle}
-          onClick={() => {}}
+          onClick={() => {
+            ipcRenderer.send(IPC_SETTINGSWINDOW_OPEN);
+          }}
         ></img>
       </div>
     </div>

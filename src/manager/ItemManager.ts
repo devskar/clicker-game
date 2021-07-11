@@ -20,18 +20,31 @@ class ItemManager extends FileManager {
     return this.cashedContent[id];
   };
 
-  static getItemPrice = (item: Item) => {
+  static getItemUpgradeCosts = (item: Item) => {
     return Math.round(
       item.basePrice * item.priceMultiplier ** item.currentLevel,
     );
   };
 
-  getItemPriceById = (id: number) => {
-    return ItemManager.getItemPrice(this.cashedContent[id]);
+  getItemUpgradeCostsById = (id: number) => {
+    return ItemManager.getItemUpgradeCosts(this.cashedContent[id]);
+  };
+
+  static getItemXUpgradeCosts = (item: Item, amount: number) => {
+    return Math.round(
+      item.basePrice *
+        item.priceMultiplier **
+          (item.currentLevel * (item.priceMultiplier ^ (amount - 1))) *
+        (item.priceMultiplier - 1),
+    );
+  };
+
+  getItemXUpgradeCostsById = (id: number, amount: number) => {
+    return ItemManager.getItemXUpgradeCosts(this.cashedContent[id], amount);
   };
 
   static canUpgradeItem = (item: Item, follower: number): boolean => {
-    return ItemManager.getItemPrice(item) <= follower;
+    return ItemManager.getItemUpgradeCosts(item) <= follower;
   };
 
   canUpgradeItemById = (item_id: number, follower: number): boolean => {
@@ -41,6 +54,8 @@ class ItemManager extends FileManager {
   upgradeItemById = (id: number) => {
     this.cashedContent[id].currentLevel += 1;
   };
+
+  maxUpgradeItemById = (id: number) => {};
 
   upgradeItem = (item: Item) => {
     this.upgradeItemById(item.id);

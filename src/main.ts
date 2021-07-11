@@ -122,7 +122,10 @@ const sendIncomeUpdate = (amount: number) => {
 };
 
 // LISTENER
-ipcMain.on(IPC_SETTINGSWINDOW_OPEN, () => {});
+ipcMain.on(IPC_SETTINGSWINDOW_OPEN, () => {
+  console.log(1);
+  mainWindow?.webContents.send(IPC_SETTINGSWINDOW_OPEN);
+});
 
 ipcMain.on(IPC_LANGUAGE_CHANGE, (event, language: string) => {
   sendLanguageUpdate(language);
@@ -145,8 +148,11 @@ ipcMain.on(IPC_ITEMS_GET_ALL, (event) => {
 ipcMain.on(IPC_ITEM_UPGRADE, (_, id: number) => {
   const item = itemManager.getItem(id);
 
+  // TODO
+  console.log(ItemManager.getItemXUpgradeCosts(item, 10));
+
   if (ItemManager.canUpgradeItem(item, accountManager.getFollower())) {
-    accountManager.decreaseFollower(ItemManager.getItemPrice(item));
+    accountManager.decreaseFollower(ItemManager.getItemUpgradeCosts(item));
     sendFollowerUpdate(accountManager.getFollower());
 
     itemManager.upgradeItem(item);

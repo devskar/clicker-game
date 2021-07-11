@@ -38,7 +38,7 @@ const ItemComponent: React.FC<Props> = ({ item }) => {
             {': '}
           </span>
           <span className='value main-font'>
-            {ItemManager.getItemPrice(item)}
+            {ItemManager.getItemUpgradeCosts(item)}
           </span>
         </div>
       </div>

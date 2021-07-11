@@ -9,6 +9,7 @@ import { IntlProvider } from 'react-intl';
 import { ipcRenderer } from 'electron';
 import { IPC_LANGUAGE_GET, IPC_LANGUAGE_UPDATE, LANGUAGES } from '../const';
 import SettingsContainer from './SettingsContainer';
+import SettingsWindow from './SettingsWindow';
 
 interface Props {}
 
@@ -35,6 +36,7 @@ const App: React.FC<Props> = () => {
       <IntlProvider locale={currentLocale} messages={localeMessages}>
         <ItemContainer />
         <IncomeDisplay />
+        <SettingsWindow />
         <CurrentFollowerDisplay />
         <MainButton />
         <UpgradeContainer />

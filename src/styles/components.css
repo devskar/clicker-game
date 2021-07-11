@@ -47,6 +47,11 @@
 
 /* DESIGN */
 
+.window {
+  border: 2px solid black;
+  background-color: rgba(78, 75, 75, 0.9);
+}
+
 .containerHeading {
   padding: 0.3rem;
   text-align: center;
