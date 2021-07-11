@@ -1,5 +1,6 @@
 import { ipcRenderer } from 'electron';
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
 import { IPC_UPGRADE_BUY } from '../const';
 import Upgrade from '../entities/Upgrade';
 
@@ -23,13 +24,23 @@ const UpgradeComponent: React.FC<Props> = ({ upgrade }) => {
         <p className='upgradeDescription main-font'>{upgrade.description}</p>
         <div className='upgradeStats'>
           <div className='upgradeLevel upgradeStat'>
-            <span className='key'>bought: </span>
+            <span className='key'>
+              <FormattedMessage id='upgradecomponent.bought' />
+              {': '}
+            </span>
             <span className='value main-font'>
-              {upgrade.bought ? 'yes' : 'no'}
+              {upgrade.bought ? (
+                <FormattedMessage id='yes' />
+              ) : (
+                <FormattedMessage id='no' />
+              )}
             </span>
           </div>
           <div className='upgradeCosts upgradeStat'>
-            <span className='key'>costs: </span>
+            <span className='key'>
+              <FormattedMessage id='upgradecomponent.costs' />
+              {': '}
+            </span>
             <span className='value main-font'>{upgrade.price}</span>
           </div>
         </div>

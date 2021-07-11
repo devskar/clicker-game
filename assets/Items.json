@@ -9,7 +9,7 @@
         "baseFollowerPerSecond": 0,
         "followerPerSecondMultiplier": 0,
         "currentLevel": 0,
-        "description": "Practice your ollie and impress more follower while skating."
+        "description": "items.ollie.description"
     },
     {
         "name": "KickFlip",
@@ -21,7 +21,7 @@
         "baseFollowerPerSecond": 2,
         "followerPerSecondMultiplier": 1,
         "currentLevel": 0,
-        "description": "Work on your kickflip skills and earn more passive follower."
+        "description": "items.kickflip.description"
     },
     {
         "name": "TreFlip",
@@ -33,7 +33,7 @@
         "baseFollowerPerSecond": 4,
         "followerPerSecondMultiplier": 2,
         "currentLevel": 0,
-        "description": "Learning the treflip will draw a lot of attention in your local skate community."
+        "description": "items.treflip.description"
     },
     {
         "name": "LaserFlip",
@@ -45,6 +45,6 @@
         "baseFollowerPerSecond": 4,
         "followerPerSecondMultiplier": 2,
         "currentLevel": 0,
-        "description": "The laserflip will get draw attention not just in your local area. Go learn it!"
+        "description": "items.laserflip.description"
     }
 ]

@@ -1,4 +1,13 @@
 {
-    "app.text": "Edit <code>src/App.js</code> and save to reload.<br/>Now with {what}!",
-    "app.learn-react-link": "Learn React."
+    "income.text": "Follower per second",
+    "itemcomponent.level": "level",
+    "itemcomponent.costs": "costs",
+    "upgradecomponent.bought": "bought",
+    "upgradecomponent.costs": "costs",
+    "yes": "yes",
+    "no": "no",
+    "items.ollie.description" : "Practice your ollie and impress more follower while skating.",
+    "items.kickflip.description": "Work on your kickflip skills and earn more passive follower.",
+    "items.treflip.description": "Learning the treflip will draw a lot of attention in your local skate community.",
+    "items.laserflip.description": "The laserflip will draw attention not just in your local area. Go learn it!"
 }

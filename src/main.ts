@@ -13,6 +13,7 @@ import {
   IPC_UPGRADE_BUY,
   IPC_LANGUAGE_UPDATE,
   IPC_LANGUAGE_CHANGE,
+  IPC_SETTINGSWINDOW_OPEN,
 } from './const';
 import Item from './entities/Item';
 import AccountManager from './manager/AccountManager';
@@ -121,6 +122,8 @@ const sendIncomeUpdate = (amount: number) => {
 };
 
 // LISTENER
+ipcMain.on(IPC_SETTINGSWINDOW_OPEN, () => {});
+
 ipcMain.on(IPC_LANGUAGE_CHANGE, (event, language: string) => {
   sendLanguageUpdate(language);
 });

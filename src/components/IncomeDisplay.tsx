@@ -33,7 +33,7 @@ const IncomeDisplay: React.FC<Props> = () => {
     >
       <h1 style={tagStyle}>{income}</h1>
       <p>
-        <FormattedMessage id='app.text' />
+        <FormattedMessage id='income.text' />
       </p>
     </div>
   );

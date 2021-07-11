@@ -1,5 +1,6 @@
 import { ipcRenderer } from 'electron';
 import React, { useEffect, useState } from 'react';
+import { FormattedMessage } from 'react-intl';
 import { IPC_UPGRADES_GET_ALL, IPC_UPGRADES_UPDATE } from '../const';
 import Upgrade from '../entities/Upgrade';
 import UpgradeComponent from './UpgradeComponent';
@@ -19,7 +20,9 @@ const UpgradeContainer: React.FC<Props> = () => {
 
   return (
     <div id='upgradeContainer' className='non-selectable'>
-      <h2 className='main-font containerHeading'>Upgrades</h2>
+      <h2 className='main-font containerHeading'>
+        <FormattedMessage id='none' defaultMessage='Upgrades' />
+      </h2>
       <div className='upgradeComponentContainer'>
         {upgradeData?.map((upgrade) => (
           <UpgradeComponent key={upgrade.id} upgrade={upgrade} />
