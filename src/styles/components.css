@@ -45,6 +45,10 @@
   display: none;
 }
 
+#settingsWindowExitButton {
+  float: right;
+}
+
 /* DESIGN */
 
 .window {
@@ -88,4 +92,14 @@
 
 .upgradeBought {
   background-color: rgba(0, 128, 0, 0.6);
+}
+
+.settingsGroup {
+  display: flex;
+  align-items: center;
+}
+
+#settingLanguageSelector {
+  appearance: none;
+  border: none;
 }

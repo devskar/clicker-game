@@ -4,6 +4,7 @@ import deMessages from '../assets/lang/de.json';
 export const ITEMS_FILE_PATH = __dirname + '/assets/Items.json';
 export const UPGRADES_FILE_PATH = __dirname + '/assets/Upgrades.json';
 export const ACCOUNT_FILE_PATH = __dirname + '/assets/Account.json';
+export const SETTINGS_FILE_PATH = __dirname + '/assets/Settings.json';
 
 // IPC MESSAGES
 export const IPC_ITEMS_GET_ALL = 'items:getAll';
@@ -21,7 +22,11 @@ export const IPC_LANGUAGE_UPDATE = 'language:update';
 export const IPC_LANGUAGE_GET = 'language:get';
 export const IPC_SETTINGSWINDOW_OPEN = 'settingswindow:open';
 
-export const LANGUAGES = new Map<string, Record<string, string>>([
-  ['en-US', enUSMessages],
-  ['de', deMessages],
-]);
+export const LANGUAGES_MAP = {
+  'en-US': enUSMessages,
+  de: deMessages,
+};
+
+export type Language = keyof typeof LANGUAGES_MAP;
+
+export const DEFAULT_LANGUAGE: Language = 'en-US';

@@ -123,7 +123,6 @@ const sendIncomeUpdate = (amount: number) => {
 
 // LISTENER
 ipcMain.on(IPC_SETTINGSWINDOW_OPEN, () => {
-  console.log(1);
   mainWindow?.webContents.send(IPC_SETTINGSWINDOW_OPEN);
 });
 
