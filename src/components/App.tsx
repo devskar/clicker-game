@@ -20,9 +20,7 @@ import SettingsWindow from './SettingsWindow';
 interface Props {}
 
 const App: React.FC<Props> = () => {
-  const [currentLocale, setCurrentLocale] = useState<Language>(() => {
-    return 'en-US';
-  });
+  const [currentLocale, setCurrentLocale] = useState<Language>('en-US');
   const [localeMessages, setLocaleMessages] = useState(
     LANGUAGES_MAP[currentLocale],
   );
