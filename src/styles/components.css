@@ -99,7 +99,12 @@
   align-items: center;
 }
 
+#settingsContainer {
+  padding: 1rem;
+}
+
 #settingLanguageSelector {
   appearance: none;
   border: none;
+  width: 5rem;
 }

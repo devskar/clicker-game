@@ -16,8 +16,8 @@ const SettingsWindow: React.FC<Props> = () => {
 
     let i = 0;
 
-    Object.keys(LANGUAGES_MAP).forEach((key) => {
-      nodes.push(<option key={i}>{key}</option>);
+    Object.values(LANGUAGES_MAP).forEach((values) => {
+      nodes.push(<option key={i}>{values['language.name']}</option>);
       i++;
     });
 
@@ -46,11 +46,17 @@ const SettingsWindow: React.FC<Props> = () => {
         <button id='settingsWindowExitButton' onClick={() => setShown(false)}>
           X
         </button>
-        <div className='settingsGroup'>
-          <label>Language</label>
-          <select id='settingLanguageSelector' onChange={handleLanguageChange}>
-            {languageDropdownOptions}
-          </select>
+        <div id='settingsContainer'>
+          <div className='settingsGroup'>
+            <label>Language</label>
+            <select
+              id='settingLanguageSelector'
+              className='main-font'
+              onChange={handleLanguageChange}
+            >
+              {languageDropdownOptions}
+            </select>
+          </div>
         </div>
       </div>
     );
