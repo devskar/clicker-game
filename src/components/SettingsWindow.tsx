@@ -19,7 +19,6 @@ const SettingsWindow: React.FC<Props> = () => {
     Object.entries(LANGUAGES_MAP).forEach((entry) => {
       nodes.push(
         <option
-          id={entry[0]}
           key={i}
           onSelect={() => handleLanguageChange(entry[0])}
           data-locale-name={entry[0]}
