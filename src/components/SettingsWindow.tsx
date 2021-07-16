@@ -22,6 +22,7 @@ const SettingsWindow: React.FC<Props> = () => {
           id={entry[0]}
           key={i}
           onSelect={() => handleLanguageChange(entry[0])}
+          data-locale-name={entry[0]}
         >
           {entry[1]['language.name']}
         </option>,
@@ -33,9 +34,12 @@ const SettingsWindow: React.FC<Props> = () => {
   });
 
   const handleLanguageChange = (event: any) => {
+    console.log(
+      event.target[event.target.options.selectedIndex].dataset.localeName,
+    );
     ipcRenderer.send(
       IPC_LANGUAGE_CHANGE,
-      event.target[event.target.options.selectedIndex].id,
+      event.target[event.target.options.selectedIndex].dataset.localeName,
     );
   };
 
