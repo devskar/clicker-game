@@ -8,7 +8,6 @@ import CurrentFollowerDisplay from './CurrentFollowerDisplay';
 import { IntlProvider } from 'react-intl';
 import { ipcRenderer } from 'electron';
 import {
-  DEFAULT_LANGUAGE,
   IPC_LANGUAGE_GET,
   IPC_LANGUAGE_UPDATE,
   Language,

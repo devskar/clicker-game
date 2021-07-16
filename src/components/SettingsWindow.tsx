@@ -1,5 +1,5 @@
 import { ipcRenderer } from 'electron';
-import React, { useEffect, useState } from 'react';
+import React, { SyntheticEvent, useEffect, useState } from 'react';
 import {
   IPC_LANGUAGE_CHANGE,
   IPC_SETTINGSWINDOW_OPEN,
@@ -16,8 +16,16 @@ const SettingsWindow: React.FC<Props> = () => {
 
     let i = 0;
 
-    Object.values(LANGUAGES_MAP).forEach((values) => {
-      nodes.push(<option key={i}>{values['language.name']}</option>);
+    Object.entries(LANGUAGES_MAP).forEach((entry) => {
+      nodes.push(
+        <option
+          id={entry[0]}
+          key={i}
+          onSelect={() => handleLanguageChange(entry[0])}
+        >
+          {entry[1]['language.name']}
+        </option>,
+      );
       i++;
     });
 
@@ -25,7 +33,10 @@ const SettingsWindow: React.FC<Props> = () => {
   });
 
   const handleLanguageChange = (event: any) => {
-    ipcRenderer.send(IPC_LANGUAGE_CHANGE, event.target.value);
+    ipcRenderer.send(
+      IPC_LANGUAGE_CHANGE,
+      event.target[event.target.options.selectedIndex].id,
+    );
   };
 
   useEffect(() => {
@@ -33,12 +44,6 @@ const SettingsWindow: React.FC<Props> = () => {
       setShown(true);
     });
   }, []);
-
-  // useEffect(() => {
-  //   ipcRenderer.on(IPC_LANGUAGE_CHANGE, (_, lang: Language) => {
-  //     setLanguageDropdownOptions(languageDropdownOptions.remove())
-  //   });
-  // }, []);
 
   if (shown) {
     return (
