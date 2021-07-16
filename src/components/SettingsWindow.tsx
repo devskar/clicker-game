@@ -34,9 +34,6 @@ const SettingsWindow: React.FC<Props> = () => {
   });
 
   const handleLanguageChange = (event: any) => {
-    console.log(
-      event.target[event.target.options.selectedIndex].dataset.localeName,
-    );
     ipcRenderer.send(
       IPC_LANGUAGE_CHANGE,
       event.target[event.target.options.selectedIndex].dataset.localeName,
