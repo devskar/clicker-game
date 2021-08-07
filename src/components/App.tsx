@@ -13,7 +13,7 @@ import {
   Language,
   LANGUAGES_MAP,
 } from '../const';
-import SettingsContainer from './SettingsContainer';
+import OptionsContainer from './OptionsContainer';
 import SettingsWindow from './SettingsWindow';
 
 interface Props {}
@@ -45,7 +45,7 @@ const App: React.FC<Props> = () => {
         <CurrentFollowerDisplay />
         <MainButton />
         <UpgradeContainer />
-        <SettingsContainer />
+        <OptionsContainer />
       </IntlProvider>
     </div>
   );

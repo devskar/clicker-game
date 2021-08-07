@@ -45,8 +45,25 @@
   display: none;
 }
 
+#settingsWindow {
+  position: relative;
+}
+
 #settingsWindowExitButton {
-  float: right;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+#settingGroupsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.settingsGroup {
+  display: flex;
+  /* align-items: flex-start; */
 }
 
 /* DESIGN */
@@ -94,17 +111,25 @@
   background-color: rgba(0, 128, 0, 0.6);
 }
 
-.settingsGroup {
-  display: flex;
-  align-items: center;
+#settingsWindowExitButton {
+  background: transparent;
+  border: 1px solid black;
 }
 
-#settingsContainer {
+#settingGroupsContainer {
+  height: 100%;
+  width: 100%;
+}
+
+.settingsGroup {
+  width: 40%;
   padding: 1rem;
 }
 
 #settingLanguageSelector {
-  appearance: none;
   border: none;
   width: 5rem;
+  background: transparent;
+  outline: none;
+  border: 1px solid black;
 }

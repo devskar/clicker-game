@@ -21,7 +21,7 @@ const buttonStyle: React.CSSProperties = {
 const SettingsContainer: React.FC<Props> = () => {
   return (
     <div
-      id='settingsContainer'
+      id='optionsContainer'
       className='non-selectable scrollable'
       style={divStyle}
     >

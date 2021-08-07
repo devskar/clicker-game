@@ -1,9 +1,8 @@
 import { ipcRenderer } from 'electron';
-import React, { SyntheticEvent, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   IPC_LANGUAGE_CHANGE,
   IPC_SETTINGSWINDOW_OPEN,
-  Language,
   LANGUAGES_MAP,
 } from '../const';
 
@@ -51,7 +50,127 @@ const SettingsWindow: React.FC<Props> = () => {
         <button id='settingsWindowExitButton' onClick={() => setShown(false)}>
           X
         </button>
-        <div id='settingsContainer'>
+        <div id='settingGroupsContainer' className='scrollable'>
+          <div className='settingsGroup'>
+            <label>Language</label>
+            <select
+              id='settingLanguageSelector'
+              className='main-font'
+              onChange={handleLanguageChange}
+            >
+              {languageDropdownOptions}
+            </select>
+          </div>
+          <div className='settingsGroup'>
+            <label>Language</label>
+            <select
+              id='settingLanguageSelector'
+              className='main-font'
+              onChange={handleLanguageChange}
+            >
+              {languageDropdownOptions}
+            </select>
+          </div>
+          <div className='settingsGroup'>
+            <label>Language</label>
+            <select
+              id='settingLanguageSelector'
+              className='main-font'
+              onChange={handleLanguageChange}
+            >
+              {languageDropdownOptions}
+            </select>
+          </div>
+          <div className='settingsGroup'>
+            <label>Language</label>
+            <select
+              id='settingLanguageSelector'
+              className='main-font'
+              onChange={handleLanguageChange}
+            >
+              {languageDropdownOptions}
+            </select>
+          </div>
+          <div className='settingsGroup'>
+            <label>Language</label>
+            <select
+              id='settingLanguageSelector'
+              className='main-font'
+              onChange={handleLanguageChange}
+            >
+              {languageDropdownOptions}
+            </select>
+          </div>
+          <div className='settingsGroup'>
+            <label>Language</label>
+            <select
+              id='settingLanguageSelector'
+              className='main-font'
+              onChange={handleLanguageChange}
+            >
+              {languageDropdownOptions}
+            </select>
+          </div>
+          <div className='settingsGroup'>
+            <label>Language</label>
+            <select
+              id='settingLanguageSelector'
+              className='main-font'
+              onChange={handleLanguageChange}
+            >
+              {languageDropdownOptions}
+            </select>
+          </div>
+          <div className='settingsGroup'>
+            <label>Language</label>
+            <select
+              id='settingLanguageSelector'
+              className='main-font'
+              onChange={handleLanguageChange}
+            >
+              {languageDropdownOptions}
+            </select>
+          </div>
+          <div className='settingsGroup'>
+            <label>Language</label>
+            <select
+              id='settingLanguageSelector'
+              className='main-font'
+              onChange={handleLanguageChange}
+            >
+              {languageDropdownOptions}
+            </select>
+          </div>
+          <div className='settingsGroup'>
+            <label>Language</label>
+            <select
+              id='settingLanguageSelector'
+              className='main-font'
+              onChange={handleLanguageChange}
+            >
+              {languageDropdownOptions}
+            </select>
+          </div>
+          <div className='settingsGroup'>
+            <label>Language</label>
+            <select
+              id='settingLanguageSelector'
+              className='main-font'
+              onChange={handleLanguageChange}
+            >
+              {languageDropdownOptions}
+            </select>
+          </div>
+          <div className='settingsGroup'>
+            <label>Language</label>
+            <select
+              id='settingLanguageSelector'
+              className='main-font'
+              onChange={handleLanguageChange}
+            >
+              {languageDropdownOptions}
+            </select>
+          </div>
           <div className='settingsGroup'>
             <label>Language</label>
             <select

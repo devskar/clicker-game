@@ -8,6 +8,16 @@
   transform: translateY(-5%);
 }
 
+#settingsWindowExitButton:hover {
+  border-color: gold;
+  color: gold;
+}
+
+/* SETTING SELECTOR HOVERS */
+#settingLanguageSelector:hover {
+  border-color: gold;
+}
+
 /* ITEMS HOVER */
 
 .itemComponent:hover {

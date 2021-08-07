@@ -61,7 +61,7 @@ body {
   grid-row: 1 / span calc(var(--main-row-amount) - 1);
 }
 
-#settingsContainer {
+#optionsContainer {
   grid-column: 11 / span 12;
   grid-row: var(--main-row-amount);
 }
@@ -76,7 +76,7 @@ body {
 }
 
 .scrollable {
-  overflow: auto;
+  overflow: scroll;
 }
 
 .scrollable::-webkit-scrollbar {
