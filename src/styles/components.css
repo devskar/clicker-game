@@ -63,7 +63,7 @@
 
 .settingsGroup {
   display: flex;
-  /* align-items: flex-start; */
+  flex-direction: column; /* stack flex items vertically */
 }
 
 /* DESIGN */
@@ -123,6 +123,7 @@
 
 .settingsGroup {
   width: 40%;
+  height: 3rem;
   padding: 1rem;
 }
 
