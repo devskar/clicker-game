@@ -63,7 +63,7 @@
 
 .settingsGroup {
   display: flex;
-  flex-direction: column; /* stack flex items vertically */
+  flex-direction: column;
 }
 
 /* DESIGN */
@@ -125,6 +125,10 @@
   width: 40%;
   height: 3rem;
   padding: 1rem;
+}
+
+.settingsGroup > * {
+  padding: 0.3rem;
 }
 
 #settingLanguageSelector {
