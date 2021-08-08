@@ -11,7 +11,13 @@ class SettingsManager extends FileManager {
     settingsFile;
   }
 
-  setLanguage = (language: Language) => {};
+  setLanguage = (language: Language) => {
+    this.cashedContent['locale'] = language;
+  };
+
+  getLanguage = (): Language | null => {
+    return this.cashedContent['locale'];
+  };
 }
 
 export default SettingsManager;
