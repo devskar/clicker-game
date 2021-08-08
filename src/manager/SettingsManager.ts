@@ -13,3 +13,5 @@ class SettingsManager extends FileManager {
 
   setLanguage = (language: Language) => {};
 }
+
+export default SettingsManager;
