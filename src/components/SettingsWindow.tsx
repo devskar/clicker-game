@@ -55,8 +55,7 @@ const SettingsWindow: React.FC<Props> = () => {
               <FormattedMessage id='language' />
             </label>
             <select
-              id='settingLanguageSelector'
-              className='main-font'
+              className='settingsSelector main-font'
               onChange={handleLanguageChange}
             >
               {languageDropdownOptions}

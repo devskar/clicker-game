@@ -19,6 +19,7 @@ import Item from './entities/Item';
 import AccountManager from './manager/AccountManager';
 import IncomeManager from './manager/IncomeManager';
 import ItemManager from './manager/ItemManager';
+import SettingsManager from './manager/SettingsManager';
 import { round } from './utils';
 import Icon from '../assets/images/main.ico';
 import UpgradeManager from './manager/UpgradeManager';
@@ -99,6 +100,7 @@ const itemManager = new ItemManager();
 const upgradeManager = new UpgradeManager();
 const accountManager = new AccountManager();
 const incomeManager = new IncomeManager(itemManager, upgradeManager);
+const settingsManager = new SettingsManager();
 
 // SENDER
 const sendLanguageUpdate = (language: string) => {
@@ -127,6 +129,7 @@ ipcMain.on(IPC_SETTINGSWINDOW_OPEN, () => {
 });
 
 ipcMain.on(IPC_LANGUAGE_CHANGE, (event, language: string) => {
+  settingsManager;
   sendLanguageUpdate(language);
 });
 

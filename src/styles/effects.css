@@ -14,7 +14,7 @@
 }
 
 /* SETTING SELECTOR HOVERS */
-#settingLanguageSelector:hover {
+.settingsSelector:hover {
   border-color: gold;
 }
 

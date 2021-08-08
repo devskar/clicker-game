@@ -131,7 +131,7 @@
   padding: 0.3rem;
 }
 
-#settingLanguageSelector {
+.settingsSelector {
   border: none;
   background: transparent;
   outline: none;
