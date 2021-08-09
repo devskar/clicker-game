@@ -137,7 +137,7 @@ ipcMain.on(IPC_LANGUAGE_CHANGE, (_, language: Language) => {
   sendLanguageUpdate(language);
 });
 
-ipcMain.on(IPC_LANGUAGE_GET, (_) => {
+ipcMain.on(IPC_LANGUAGE_GET, () => {
   sendLanguageUpdate(settingsManager.getLanguage());
 });
 

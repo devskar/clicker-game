@@ -23,10 +23,8 @@ export const IPC_LANGUAGE_GET = 'language:get';
 export const IPC_SETTINGSWINDOW_OPEN = 'settingswindow:open';
 
 export const LANGUAGES_MAP = {
-  'en-US': enMessages,
+  en: enMessages,
   de: deMessages,
 };
 
 export type Language = keyof typeof LANGUAGES_MAP;
-
-export const DEFAULT_LANGUAGE: Language = 'en-US';

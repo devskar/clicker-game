@@ -25,7 +25,6 @@ const SettingsWindow: React.FC<Props> = () => {
           {entry[1]['language.name']}
         </option>
       );
-      console.log(intl);
       console.log(entry[0], intl.locale, entry[0] == intl.locale);
 
       if (entry[0] == intl.locale) nodes.unshift(optionElement);
