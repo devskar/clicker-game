@@ -7,38 +7,21 @@ import CurrentFollowerDisplay from './CurrentFollowerDisplay';
 
 import { IntlProvider } from 'react-intl';
 import { ipcRenderer } from 'electron';
-import {
-  IPC_LANGUAGE_GET,
-  IPC_LANGUAGE_UPDATE,
-  Language,
-  LANGUAGES_MAP,
-} from '../const';
+import { Language, LANGUAGES_MAP } from '../const';
 import OptionsContainer from './OptionsContainer';
 import SettingsWindow from './SettingsWindow';
 
 interface Props {}
 
 const App: React.FC<Props> = () => {
-  const [currentLocale, setCurrentLocale] = useState<Language>('en-US');
-  const [localeMessages, setLocaleMessages] = useState(
-    LANGUAGES_MAP[currentLocale],
-  );
-
-  useEffect(() => {
-    ipcRenderer.on(IPC_LANGUAGE_UPDATE, (_, locale: Language) => {
-      setCurrentLocale(locale);
-    });
-
-    ipcRenderer.send(IPC_LANGUAGE_GET);
-  }, []);
-
-  useEffect(() => {
-    setLocaleMessages(LANGUAGES_MAP[currentLocale]);
-  }, [currentLocale]);
+  const [currentLanguage, setCurrentLanguage] = useState<Language>('en-US');
 
   return (
     <div id='main'>
-      <IntlProvider locale={currentLocale} messages={localeMessages}>
+      <IntlProvider
+        locale={currentLanguage}
+        messages={LANGUAGES_MAP[currentLanguage]}
+      >
         <ItemContainer />
         <IncomeDisplay />
         <SettingsWindow />

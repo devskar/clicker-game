@@ -14,6 +14,8 @@ import {
   IPC_LANGUAGE_UPDATE,
   IPC_LANGUAGE_CHANGE,
   IPC_SETTINGSWINDOW_OPEN,
+  Language,
+  IPC_LANGUAGE_GET,
 } from './const';
 import Item from './entities/Item';
 import AccountManager from './manager/AccountManager';
@@ -60,7 +62,9 @@ const createWindow = () => {
 
   // Emitted when the window is closed.
   mainWindow.on('closed', () => {
-    [itemManager, accountManager].map((manager) => manager.save());
+    [itemManager, upgradeManager, accountManager, settingsManager].map(
+      (manager) => manager.save(),
+    );
 
     // Dereference the window object, usually you would store windows
     // in an array if your app supports multi windows, this is the time
@@ -103,7 +107,7 @@ const incomeManager = new IncomeManager(itemManager, upgradeManager);
 const settingsManager = new SettingsManager();
 
 // SENDER
-const sendLanguageUpdate = (language: string) => {
+const sendLanguageUpdate = (language: Language | null) => {
   mainWindow?.webContents.send(IPC_LANGUAGE_UPDATE, language);
 };
 
@@ -128,9 +132,13 @@ ipcMain.on(IPC_SETTINGSWINDOW_OPEN, () => {
   mainWindow?.webContents.send(IPC_SETTINGSWINDOW_OPEN);
 });
 
-ipcMain.on(IPC_LANGUAGE_CHANGE, (event, language: string) => {
-  settingsManager;
+ipcMain.on(IPC_LANGUAGE_CHANGE, (_, language: Language) => {
+  settingsManager.setLanguage(language);
   sendLanguageUpdate(language);
+});
+
+ipcMain.on(IPC_LANGUAGE_GET, (_) => {
+  sendLanguageUpdate(settingsManager.getLanguage());
 });
 
 ipcMain.on(IPC_MAIN_BUTTON_CLICKED, (event) => {

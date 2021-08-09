@@ -1,4 +1,4 @@
-import enUSMessages from '../assets/lang/en-US.json';
+import enMessages from '../assets/lang/en.json';
 import deMessages from '../assets/lang/de.json';
 
 export const ITEMS_FILE_PATH = __dirname + '/assets/Items.json';
@@ -23,7 +23,7 @@ export const IPC_LANGUAGE_GET = 'language:get';
 export const IPC_SETTINGSWINDOW_OPEN = 'settingswindow:open';
 
 export const LANGUAGES_MAP = {
-  'en-US': enUSMessages,
+  'en-US': enMessages,
   de: deMessages,
 };
 
