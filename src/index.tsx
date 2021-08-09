@@ -13,6 +13,7 @@ import {
   LANGUAGES_MAP,
 } from './const';
 
+// makes sure to load the language before the app loads
 ipcRenderer.on(IPC_LANGUAGE_UPDATE, (_, lang: Language) => {
   ReactDOM.render(
     <IntlProvider locale={lang} messages={LANGUAGES_MAP[lang]}>

@@ -158,8 +158,7 @@ ipcMain.on(IPC_ITEMS_GET_ALL, (event) => {
 ipcMain.on(IPC_ITEM_UPGRADE, (_, id: number) => {
   const item = itemManager.getItem(id);
 
-  // TODO
-  console.log(ItemManager.getItemXUpgradeCosts(item, 10));
+  // TODO console.log(ItemManager.getItemXUpgradeCosts(item, 10));
 
   if (ItemManager.canUpgradeItem(item, accountManager.getFollower())) {
     accountManager.decreaseFollower(ItemManager.getItemUpgradeCosts(item));

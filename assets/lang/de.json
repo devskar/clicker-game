@@ -2,6 +2,8 @@
     "language": "Sprache",
     "yes": "ja",
     "no": "nein",
+    "items": "Items",
+    "upgrades": "Upgrades",
     "language.name": "Deutsch",
     "income.text": "Follower pro Sekunde",
     "itemcomponent.level": "level",

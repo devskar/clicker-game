@@ -25,7 +25,6 @@ const SettingsWindow: React.FC<Props> = () => {
           {entry[1]['language.name']}
         </option>
       );
-      console.log(entry[0], intl.locale, entry[0] == intl.locale);
 
       if (entry[0] == intl.locale) nodes.unshift(optionElement);
       else nodes.push(optionElement);
@@ -35,7 +34,6 @@ const SettingsWindow: React.FC<Props> = () => {
   });
 
   const handleLanguageChange = (event: any) => {
-    console.log('b', event);
     ipcRenderer.send(
       IPC_LANGUAGE_CHANGE,
       event.target[event.target.options.selectedIndex].dataset.languageName,

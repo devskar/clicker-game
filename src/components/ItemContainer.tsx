@@ -21,7 +21,7 @@ const ItemContainer: React.FC<Props> = () => {
   return (
     <div id='itemContainer' className='non-selectable scrollable'>
       <h2 className='main-font containerHeading'>
-        <FormattedMessage id='none' defaultMessage='Items' />
+        <FormattedMessage id='items' />
       </h2>
       <div>
         {itemData?.map((item) => (

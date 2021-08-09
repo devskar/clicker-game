@@ -1,7 +1,9 @@
 {
+    "language": "Language",
     "yes": "yes",
     "no": "no",
-    "language": "Language",
+    "items": "Items",
+    "upgrades": "Upgrades",
     "language.name": "English",
     "income.text": "Follower per second",
     "itemcomponent.level": "level",

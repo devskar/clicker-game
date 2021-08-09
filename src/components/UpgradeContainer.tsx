@@ -21,7 +21,7 @@ const UpgradeContainer: React.FC<Props> = () => {
   return (
     <div id='upgradeContainer' className='non-selectable'>
       <h2 className='main-font containerHeading'>
-        <FormattedMessage id='none' defaultMessage='Upgrades' />
+        <FormattedMessage id='upgrades' />
       </h2>
       <div className='upgradeComponentContainer'>
         {upgradeData?.map((upgrade) => (
