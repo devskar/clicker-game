@@ -11,6 +11,13 @@ rendererRules = rules.concat({
   options: {
     name: '[path][name].[ext]'    
   }
+},
+{
+  test: /\.mp3$/,
+  loader: 'file-loader',
+  options: {
+    name: '[path][name].[ext]'    
+  }
 },);
 
 module.exports = {

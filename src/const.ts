@@ -5,6 +5,8 @@ export const ITEMS_FILE_PATH = __dirname + '/assets/Items.json';
 export const UPGRADES_FILE_PATH = __dirname + '/assets/Upgrades.json';
 export const ACCOUNT_FILE_PATH = __dirname + '/assets/Account.json';
 export const SETTINGS_FILE_PATH = __dirname + '/assets/Settings.json';
+export const BACKGROUND_LOOP_FILE_PATH =
+  __dirname + '/assets/audio/loops/background_music.mp3';
 
 // IPC MESSAGES
 export const IPC_ITEMS_GET_ALL = 'items:getAll';

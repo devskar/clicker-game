@@ -12,6 +12,10 @@ import {
   Language,
   LANGUAGES_MAP,
 } from './const';
+import AudioManager from './manager/AudioManager';
+
+const audioManager = new AudioManager();
+audioManager.playBackgroundAudio();
 
 // makes sure to load the language before the app loads
 ipcRenderer.on(IPC_LANGUAGE_UPDATE, (_, lang: Language) => {
