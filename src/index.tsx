@@ -11,11 +11,16 @@ import {
   IPC_LANGUAGE_GET,
   Language,
   LANGUAGES_MAP,
+  IPC_BACKGROUNDVOLUME_UPDATE,
 } from './const';
 import AudioManager from './manager/AudioManager';
 
 const audioManager = new AudioManager();
 audioManager.playBackgroundAudio();
+
+ipcRenderer.on(IPC_BACKGROUNDVOLUME_UPDATE, (_, amount: number) => {
+  audioManager.setBackgroundAudioVolume(amount);
+});
 
 // makes sure to load the language before the app loads
 ipcRenderer.on(IPC_LANGUAGE_UPDATE, (_, lang: Language) => {

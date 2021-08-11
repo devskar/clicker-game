@@ -15,6 +15,10 @@ import {
   IPC_SETTINGSWINDOW_OPEN,
   Language,
   IPC_LANGUAGE_GET,
+  IPC_USER_BACKGROUNDVOLUME_CHANGE,
+  IPC_BACKGROUNDVOLUME_UPDATE,
+  IPC_BACKGROUNDVOLUME_REPLY,
+  IPC_SETTINGS_BACKGROUNDVOLUME_GET,
 } from './const';
 import Item from './entities/Item';
 import AccountManager from './manager/AccountManager';
@@ -122,9 +126,30 @@ const sendIncomeUpdate = (amount: number) => {
   mainWindow?.webContents.send(IPC_INCOME_UPDATE, amount);
 };
 
+const sendBackgroundVolumeUpdate = (volume: number) => {
+  mainWindow?.webContents.send(IPC_BACKGROUNDVOLUME_UPDATE, volume);
+};
+
+const sendBackgroundVolumeReply = (volume: number) => {
+  mainWindow?.webContents.send(IPC_BACKGROUNDVOLUME_REPLY, volume);
+};
+
 // LISTENER
 ipcMain.on(IPC_SETTINGSWINDOW_OPEN, () => {
   mainWindow?.webContents.send(IPC_SETTINGSWINDOW_OPEN);
+});
+
+ipcMain.on(IPC_USER_BACKGROUNDVOLUME_CHANGE, (_, volume: number) => {
+  settingsManager.setBackgroundAudioVolume(volume);
+  sendBackgroundVolumeUpdate(volume);
+});
+
+ipcMain.on(IPC_SETTINGS_BACKGROUNDVOLUME_GET, (_, volume: number) => {
+  sendBackgroundVolumeReply(settingsManager.getBackgroundAudioVolume());
+});
+
+ipcMain.on(IPC_USER_BACKGROUNDVOLUME_CHANGE, (_, volume: number) => {
+  sendBackgroundVolumeUpdate(volume);
 });
 
 ipcMain.on(IPC_LANGUAGE_CHANGE, (_, language: Language) => {

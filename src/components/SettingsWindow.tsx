@@ -4,14 +4,26 @@ import { FormattedMessage, useIntl } from 'react-intl';
 import {
   IPC_LANGUAGE_CHANGE,
   IPC_SETTINGSWINDOW_OPEN,
+  IPC_USER_BACKGROUNDVOLUME_CHANGE,
+  IPC_SETTINGS_BACKGROUNDVOLUME_GET,
+  IPC_BACKGROUNDVOLUME_REPLY,
   LANGUAGES_MAP,
 } from '../const';
 
 interface Props {}
 
 const SettingsWindow: React.FC<Props> = () => {
+  // WINDOW
   const [shown, setShown] = useState(true);
   const intl = useIntl();
+
+  useEffect(() => {
+    ipcRenderer.on(IPC_SETTINGSWINDOW_OPEN, () => {
+      setShown(true);
+    });
+  }, []);
+
+  // LANGUAGE STUFF
   const [languageDropdownOptions, setLanguageDropdownOptions] = useState(() => {
     const nodes: JSX.Element[] = [];
 
@@ -40,12 +52,26 @@ const SettingsWindow: React.FC<Props> = () => {
     );
   };
 
+  // VOLUME STUFF
+  const [currentVolume, setCurrentVolume] = useState(50);
+
   useEffect(() => {
-    ipcRenderer.on(IPC_SETTINGSWINDOW_OPEN, () => {
-      setShown(true);
+    ipcRenderer.on(IPC_BACKGROUNDVOLUME_REPLY, (_, volume: number) => {
+      setCurrentVolume(volume);
     });
+
+    ipcRenderer.send(IPC_SETTINGS_BACKGROUNDVOLUME_GET);
   }, []);
 
+  const handleBackgroundVolumeChange = (event: any) => {
+    setCurrentVolume(+event.target.value);
+  };
+
+  useEffect(() => {
+    ipcRenderer.send(IPC_USER_BACKGROUNDVOLUME_CHANGE, currentVolume);
+  }, [currentVolume]);
+
+  // COMPONENT
   if (shown) {
     return (
       <div id='settingsWindow' className='window non-selectable main-font'>
@@ -63,6 +89,19 @@ const SettingsWindow: React.FC<Props> = () => {
             >
               {languageDropdownOptions}
             </select>
+          </div>
+          <div className='settingsGroup'>
+            <label>
+              <FormattedMessage id='volume' />
+            </label>
+            <input
+              type='range'
+              min='0'
+              max='100'
+              defaultValue={currentVolume}
+              onChange={handleBackgroundVolumeChange}
+            />
+            {currentVolume}
           </div>
         </div>
       </div>

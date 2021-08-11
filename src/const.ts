@@ -23,6 +23,11 @@ export const IPC_LANGUAGE_CHANGE = 'language:change';
 export const IPC_LANGUAGE_UPDATE = 'language:update';
 export const IPC_LANGUAGE_GET = 'language:get';
 export const IPC_SETTINGSWINDOW_OPEN = 'settingswindow:open';
+export const IPC_BACKGROUNDVOLUME_UPDATE = 'backgroundvolume:update';
+export const IPC_SETTINGS_BACKGROUNDVOLUME_GET =
+  'settings_backgroundvolume:get';
+export const IPC_USER_BACKGROUNDVOLUME_CHANGE = 'user_backgroundvolume:change';
+export const IPC_BACKGROUNDVOLUME_REPLY = 'backgroundvolume:reply';
 
 export const LANGUAGES_MAP = {
   en: enMessages,

@@ -18,6 +18,14 @@ class SettingsManager extends FileManager {
   getLanguage = (): Language | null => {
     return this.cashedContent['language'];
   };
+
+  setBackgroundAudioVolume = (amount: number) => {
+    this.cashedContent['backgroundAudioVolume'] = amount;
+  };
+
+  getBackgroundAudioVolume = () => {
+    return this.cashedContent['backgroundAudioVolume'];
+  };
 }
 
 export default SettingsManager;
