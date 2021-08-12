@@ -92,7 +92,7 @@ const SettingsWindow: React.FC<Props> = () => {
           </div>
           <div className='settingsGroup'>
             <label>
-              <FormattedMessage id='volume' />
+              <FormattedMessage id='music' /> <FormattedMessage id='volume' />
             </label>
             <input
               type='range'

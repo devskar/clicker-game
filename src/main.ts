@@ -144,7 +144,7 @@ ipcMain.on(IPC_USER_BACKGROUNDVOLUME_CHANGE, (_, volume: number) => {
   sendBackgroundVolumeUpdate(volume);
 });
 
-ipcMain.on(IPC_SETTINGS_BACKGROUNDVOLUME_GET, (_, volume: number) => {
+ipcMain.on(IPC_SETTINGS_BACKGROUNDVOLUME_GET, () => {
   sendBackgroundVolumeReply(settingsManager.getBackgroundAudioVolume());
 });
 
