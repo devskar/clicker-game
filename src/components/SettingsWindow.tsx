@@ -75,9 +75,9 @@ const SettingsWindow: React.FC<Props> = () => {
   if (shown) {
     return (
       <div id='settingsWindow' className='window non-selectable main-font'>
-        {/* <button id='settingsWindowExitButton' onClick={() => setShown(false)}>
+        <button id='settingsWindowExitButton' onClick={() => setShown(false)}>
           X
-        </button> */}
+        </button>
         <div id='settingGroupsContainer' className='scrollable'>
           <div className='settingsGroup'>
             <label>
