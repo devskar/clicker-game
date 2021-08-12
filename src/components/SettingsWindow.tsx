@@ -75,9 +75,9 @@ const SettingsWindow: React.FC<Props> = () => {
   if (shown) {
     return (
       <div id='settingsWindow' className='window non-selectable main-font'>
-        <button id='settingsWindowExitButton' onClick={() => setShown(false)}>
+        {/* <button id='settingsWindowExitButton' onClick={() => setShown(false)}>
           X
-        </button>
+        </button> */}
         <div id='settingGroupsContainer' className='scrollable'>
           <div className='settingsGroup'>
             <label>
@@ -94,14 +94,16 @@ const SettingsWindow: React.FC<Props> = () => {
             <label>
               <FormattedMessage id='music' /> <FormattedMessage id='volume' />
             </label>
-            <input
-              type='range'
-              min='0'
-              max='100'
-              defaultValue={currentVolume}
-              onChange={handleBackgroundVolumeChange}
-            />
-            {currentVolume}
+            <div>
+              <input
+                type='range'
+                min='0'
+                max='100'
+                defaultValue={currentVolume}
+                onChange={handleBackgroundVolumeChange}
+              />
+              {currentVolume}
+            </div>
           </div>
         </div>
       </div>

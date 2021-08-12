@@ -122,9 +122,9 @@
 }
 
 .settingsGroup {
-  width: 40%;
+  width: 45%;
   height: 3rem;
-  padding: 1rem;
+  padding: 2.5%;
 }
 
 .settingsGroup > * {
