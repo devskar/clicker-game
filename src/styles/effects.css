@@ -9,19 +9,19 @@
 }
 
 #settingsWindowExitButton:hover {
-  border-color: gold;
-  color: gold;
+  border-color: var(--highlight-color);
+  color: var(--highlight-color);
 }
 
 /* SETTING SELECTOR HOVERS */
 .settingsSelector:hover {
-  border-color: gold;
+  border-color: var(--highlight-color);
 }
 
 /* ITEMS HOVER */
 
 .itemComponent:hover {
-  border-color: gold;
+  border-color: var(--highlight-color);
 }
 
 /* UPGRADES HOVER */

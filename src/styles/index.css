@@ -8,10 +8,14 @@ body {
   overflow: hidden;
 }
 
-#main {
+:root {
+  --highlight-color: gold;
+
   --main-column-amount: 12;
   --main-row-amount: 8;
+}
 
+#main {
   height: 100vh;
   display: grid;
   grid-template-columns: repeat(

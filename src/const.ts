@@ -29,6 +29,9 @@ export const IPC_SETTINGS_BACKGROUNDVOLUME_GET =
 export const IPC_USER_BACKGROUNDVOLUME_CHANGE = 'user_backgroundvolume:change';
 export const IPC_BACKGROUNDVOLUME_REPLY = 'backgroundvolume:reply';
 
+export const CSS_HIGHLIGHT_COLOR_VARIABLE = '--highlight-color';
+export const CSS_HIGHLIGHT_EXAMPLE_COLORS = ['blue', 'purple', 'gray'];
+
 export const LANGUAGES_MAP = {
   en: enMessages,
   de: deMessages,

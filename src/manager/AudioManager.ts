@@ -22,7 +22,6 @@ class AudioManager {
 
   setBackgroundAudioVolume = (amount: number) => {
     amount /= 100;
-    console.log(amount);
     this.backgroundAudio.volume = amount;
   };
 }

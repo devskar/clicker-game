@@ -66,6 +66,10 @@
   flex-direction: column;
 }
 
+#settingsColorDiv {
+  display: flex;
+}
+
 /* DESIGN */
 
 .window {
@@ -120,6 +124,7 @@
   height: 100%;
   width: 100%;
   white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .settingsGroup {
@@ -137,4 +142,13 @@
   background: transparent;
   outline: none;
   border: 1px solid black;
+}
+
+#settingsColorDiv {
+}
+
+#settingsColorDiv > div {
+  height: 20px;
+  width: 20px;
+  margin: 0.1rem;
 }
