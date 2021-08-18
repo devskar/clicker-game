@@ -47,12 +47,7 @@ const HighlightColorPicker: React.FC<Props> = () => {
       <label>
         <FormattedMessage id='colors' />
       </label>
-      <div id='settingsColorDiv'>
-        {highlightExampleColorDiv}{' '}
-        <div>
-          <input type='color'></input>
-        </div>
-      </div>
+      <div id='settingsColorDiv'>{highlightExampleColorDiv}</div>
     </div>
   );
 };

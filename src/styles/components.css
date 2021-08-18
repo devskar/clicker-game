@@ -144,9 +144,6 @@
   border: 1px solid black;
 }
 
-#settingsColorDiv {
-}
-
 #settingsColorDiv > div {
   height: 20px;
   width: 20px;
