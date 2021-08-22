@@ -17,8 +17,6 @@ const SettingsWindow: React.FC<Props> = () => {
     });
   }, []);
 
-  // COLOR STUFF
-
   // COMPONENT
   if (shown) {
     return (
