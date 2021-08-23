@@ -39,5 +39,5 @@
 }
 
 .highlightColorSelected {
-  border: 1px solid black;
+  outline: 3px solid black;
 }

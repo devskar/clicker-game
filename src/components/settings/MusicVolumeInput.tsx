@@ -13,6 +13,7 @@ const MusicVolumeInput: React.FC<Props> = () => {
   const [currentVolume, setCurrentVolume] = useState(50);
 
   useEffect(() => {
+    console.log('Registering other listener..');
     ipcRenderer.on(IPC_BACKGROUNDVOLUME_REPLY, (_, volume: number) => {
       setCurrentVolume(volume);
     });

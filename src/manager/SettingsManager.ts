@@ -24,7 +24,7 @@ class SettingsManager extends FileManager {
   };
 
   getHighlightColor = (): Color => {
-    return this.cashedContent['xhighlightColor'];
+    return this.cashedContent['highlightColor'];
   };
 
   setBackgroundAudioVolume = (amount: number) => {

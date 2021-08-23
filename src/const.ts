@@ -34,7 +34,7 @@ export const IPC_HIGHLIGHTCOLOR_UPDATE = 'highlightcolor:update';
 
 export const CSS_HIGHLIGHT_COLOR_VARIABLE = '--highlight-color';
 export const CSS_HIGHLIGHT_COLORS = ['gold', 'blue', 'red', 'green'];
-export type Color = keyof typeof CSS_HIGHLIGHT_COLORS;
+export type Color = typeof CSS_HIGHLIGHT_COLORS[number];
 
 export const LANGUAGES_MAP = {
   en: enMessages,

@@ -144,6 +144,7 @@ ipcMain.on(IPC_SETTINGSWINDOW_OPEN, () => {
 
 // HIGHLIGHT COLOR
 ipcMain.on(IPC_HIGHLIGHTCOLOR_GET, () => {
+  console.log(settingsManager.getHighlightColor());
   mainWindow?.webContents.send(
     IPC_HIGHLIGHTCOLOR_REPLY,
     settingsManager.getHighlightColor(),

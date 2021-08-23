@@ -5,6 +5,7 @@ import {
   Color,
   CSS_HIGHLIGHT_COLORS,
   CSS_HIGHLIGHT_COLOR_VARIABLE,
+  IPC_HIGHLIGHTCOLOR_GET,
   IPC_HIGHLIGHTCOLOR_REPLY,
   IPC_HIGHLIGHTCOLOR_UPDATE,
 } from '../../const';
@@ -20,17 +21,20 @@ const HighlightColorPicker: React.FC<Props> = () => {
   ]);
 
   useEffect(() => {
+    console.log('Registering Listener');
     ipcRenderer.on(IPC_HIGHLIGHTCOLOR_REPLY, (_, color: Color) => {
       setCurrentHighlightColor(color);
+      console.log('Set highlight color');
+      console.log({ currentHighlightColor });
     });
-  });
+    ipcRenderer.send(IPC_HIGHLIGHTCOLOR_GET);
+  }, []);
 
   useEffect(() => {
     document.documentElement.style.setProperty(
       CSS_HIGHLIGHT_COLOR_VARIABLE,
       currentHighlightColor,
     );
-
     ipcRenderer.send(IPC_HIGHLIGHTCOLOR_UPDATE, currentHighlightColor);
   }, [currentHighlightColor]);
 
@@ -38,9 +42,10 @@ const HighlightColorPicker: React.FC<Props> = () => {
   useEffect(() => {
     const nodes: JSX.Element[] = [];
 
-    CSS_HIGHLIGHT_COLORS.forEach((highlightColor) => {
+    CSS_HIGHLIGHT_COLORS.forEach((highlightColor, idx) => {
       const highlightExampleColorDiv = (
         <div
+          key={idx}
           style={{ backgroundColor: highlightColor }}
           className={
             currentHighlightColor == highlightColor
