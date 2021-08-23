@@ -28,9 +28,13 @@ export const IPC_SETTINGS_BACKGROUNDVOLUME_GET =
   'settings_backgroundvolume:get';
 export const IPC_USER_BACKGROUNDVOLUME_CHANGE = 'user_backgroundvolume:change';
 export const IPC_BACKGROUNDVOLUME_REPLY = 'backgroundvolume:reply';
+export const IPC_HIGHLIGHTCOLOR_GET = 'highlightcolor:get';
+export const IPC_HIGHLIGHTCOLOR_REPLY = 'highlightcolor:reply';
+export const IPC_HIGHLIGHTCOLOR_UPDATE = 'highlightcolor:update';
 
 export const CSS_HIGHLIGHT_COLOR_VARIABLE = '--highlight-color';
-export const CSS_HIGHLIGHT_EXAMPLE_COLORS = ['gold', 'blue', 'purple', 'gray'];
+export const CSS_HIGHLIGHT_COLORS = ['gold', 'blue', 'red', 'green'];
+export type Color = keyof typeof CSS_HIGHLIGHT_COLORS;
 
 export const LANGUAGES_MAP = {
   en: enMessages,

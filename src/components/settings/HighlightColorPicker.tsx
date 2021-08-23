@@ -1,53 +1,69 @@
+import { ipcRenderer } from 'electron';
 import React, { useEffect, useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import {
+  Color,
+  CSS_HIGHLIGHT_COLORS,
   CSS_HIGHLIGHT_COLOR_VARIABLE,
-  CSS_HIGHLIGHT_EXAMPLE_COLORS,
+  IPC_HIGHLIGHTCOLOR_REPLY,
+  IPC_HIGHLIGHTCOLOR_UPDATE,
 } from '../../const';
 
 interface Props {}
 
 const HighlightColorPicker: React.FC<Props> = () => {
-  const [currentHighlightColor, setCurrentHighlightColor] = useState('gold');
+  const [currentHighlightColor, setCurrentHighlightColor] = useState(
+    CSS_HIGHLIGHT_COLORS[0],
+  );
+  const [highlightExampleColorDivs, setHighlightExampleColorDivs] = useState([
+    <div></div>,
+  ]);
+
+  useEffect(() => {
+    ipcRenderer.on(IPC_HIGHLIGHTCOLOR_REPLY, (_, color: Color) => {
+      setCurrentHighlightColor(color);
+    });
+  });
 
   useEffect(() => {
     document.documentElement.style.setProperty(
       CSS_HIGHLIGHT_COLOR_VARIABLE,
       currentHighlightColor,
     );
+
+    ipcRenderer.send(IPC_HIGHLIGHTCOLOR_UPDATE, currentHighlightColor);
   }, [currentHighlightColor]);
 
-  const [highlightExampleColorDiv, setHighlightExampleColorDiv] = useState(
-    () => {
-      const nodes: JSX.Element[] = [];
+  // DIV UPDATE
+  useEffect(() => {
+    const nodes: JSX.Element[] = [];
 
-      let colorVariables = [
-        currentHighlightColor,
-        ...CSS_HIGHLIGHT_EXAMPLE_COLORS,
-      ];
+    CSS_HIGHLIGHT_COLORS.forEach((highlightColor) => {
+      const highlightExampleColorDiv = (
+        <div
+          style={{ backgroundColor: highlightColor }}
+          className={
+            currentHighlightColor == highlightColor
+              ? 'highlightColorSelected'
+              : ''
+          }
+          onClick={() => {
+            setCurrentHighlightColor(highlightColor);
+          }}
+        />
+      );
 
-      colorVariables.forEach((highlightExampleColor) => {
-        const highlightExampleColorDiv = (
-          <div
-            style={{ backgroundColor: highlightExampleColor }}
-            onClick={() => {
-              setCurrentHighlightColor(highlightExampleColor);
-            }}
-          />
-        );
-
-        nodes.push(highlightExampleColorDiv);
-      });
-      return nodes;
-    },
-  );
+      nodes.push(highlightExampleColorDiv);
+    });
+    setHighlightExampleColorDivs(nodes);
+  }, [currentHighlightColor]);
 
   return (
     <div className='settingsGroup'>
       <label>
         <FormattedMessage id='colors' />
       </label>
-      <div id='settingsColorDiv'>{highlightExampleColorDiv}</div>
+      <div id='settingsColorDiv'>{highlightExampleColorDivs}</div>
     </div>
   );
 };

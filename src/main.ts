@@ -1,35 +1,38 @@
 import { app, BrowserWindow, ipcMain } from 'electron';
+import Icon from '../assets/images/main.ico';
 import {
-  IPC_ITEMS_GET_ALL,
-  IPC_ITEM_UPGRADE,
-  IPC_ITEMS_UPDATE,
+  Color,
+  IPC_BACKGROUNDVOLUME_REPLY,
+  IPC_BACKGROUNDVOLUME_UPDATE,
   IPC_FOLLOWER_GET,
   IPC_FOLLOWER_UPDATE,
+  IPC_HIGHLIGHTCOLOR_GET,
+  IPC_HIGHLIGHTCOLOR_REPLY,
+  IPC_HIGHLIGHTCOLOR_UPDATE,
   IPC_INCOME_UPDATE,
+  IPC_ITEMS_GET_ALL,
+  IPC_ITEMS_UPDATE,
+  IPC_ITEM_UPGRADE,
+  IPC_LANGUAGE_CHANGE,
+  IPC_LANGUAGE_GET,
+  IPC_LANGUAGE_UPDATE,
   IPC_MAIN_BUTTON_CLICKED,
+  IPC_SETTINGSWINDOW_OPEN,
+  IPC_SETTINGS_BACKGROUNDVOLUME_GET,
   IPC_UPGRADES_GET_ALL,
   IPC_UPGRADES_UPDATE,
   IPC_UPGRADE_BUY,
-  IPC_LANGUAGE_UPDATE,
-  IPC_LANGUAGE_CHANGE,
-  IPC_SETTINGSWINDOW_OPEN,
-  Language,
-  IPC_LANGUAGE_GET,
   IPC_USER_BACKGROUNDVOLUME_CHANGE,
-  IPC_BACKGROUNDVOLUME_UPDATE,
-  IPC_BACKGROUNDVOLUME_REPLY,
-  IPC_SETTINGS_BACKGROUNDVOLUME_GET,
+  Language,
 } from './const';
 import Item from './entities/Item';
+import Upgrade from './entities/Upgrade';
 import AccountManager from './manager/AccountManager';
 import IncomeManager from './manager/IncomeManager';
 import ItemManager from './manager/ItemManager';
 import SettingsManager from './manager/SettingsManager';
-import { round } from './utils';
-import Icon from '../assets/images/main.ico';
 import UpgradeManager from './manager/UpgradeManager';
-import Upgrade from './entities/Upgrade';
-import AudioManager from './manager/AudioManager';
+import { round } from './utils';
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
@@ -139,6 +142,19 @@ ipcMain.on(IPC_SETTINGSWINDOW_OPEN, () => {
   mainWindow?.webContents.send(IPC_SETTINGSWINDOW_OPEN);
 });
 
+// HIGHLIGHT COLOR
+ipcMain.on(IPC_HIGHLIGHTCOLOR_GET, () => {
+  mainWindow?.webContents.send(
+    IPC_HIGHLIGHTCOLOR_REPLY,
+    settingsManager.getHighlightColor(),
+  );
+});
+
+ipcMain.on(IPC_HIGHLIGHTCOLOR_UPDATE, (_, color: Color) => {
+  settingsManager.setHighlightColor(color);
+});
+
+// BACKGROUNDVOLUME
 ipcMain.on(IPC_USER_BACKGROUNDVOLUME_CHANGE, (_, volume: number) => {
   settingsManager.setBackgroundAudioVolume(volume);
   sendBackgroundVolumeUpdate(volume);
