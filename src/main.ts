@@ -150,6 +150,7 @@ ipcMain.on(IPC_UPGRADE_BUY, (_, id: number) => {
 
   if (UpgradeManager.canBuyUpgrade(upgrade, accountManager.getFollower())) {
     accountManager.decreaseFollower(UpgradeManager.getUpgradePrice(upgrade));
+
     sendFollowerUpdate(accountManager.getFollower());
 
     upgradeManager.buyUpgrade(upgrade);
