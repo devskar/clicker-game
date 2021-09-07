@@ -1,25 +1,24 @@
 import { app, BrowserWindow, ipcMain } from 'electron';
-import isDev from 'electron-is-dev';
+import Icon from '../assets/images/main.ico';
 import {
-  IPC_ITEMS_GET_ALL,
-  IPC_ITEM_UPGRADE,
-  IPC_ITEMS_UPDATE,
   IPC_FOLLOWER_GET,
   IPC_FOLLOWER_UPDATE,
   IPC_INCOME_UPDATE,
+  IPC_ITEMS_GET_ALL,
+  IPC_ITEMS_UPDATE,
+  IPC_ITEM_UPGRADE,
   IPC_MAIN_BUTTON_CLICKED,
   IPC_UPGRADES_GET_ALL,
   IPC_UPGRADES_UPDATE,
   IPC_UPGRADE_BUY,
 } from './const';
 import Item from './entities/Item';
+import Upgrade from './entities/Upgrade';
 import AccountManager from './manager/AccountManager';
 import IncomeManager from './manager/IncomeManager';
 import ItemManager from './manager/ItemManager';
-import { round } from './utils';
-import Icon from '../assets/images/main.ico';
 import UpgradeManager from './manager/UpgradeManager';
-import Upgrade from './entities/Upgrade';
+import { round } from './utils';
 declare var MAIN_WINDOW_WEBPACK_ENTRY: any;
 declare var MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY: any;
 
@@ -151,6 +150,7 @@ ipcMain.on(IPC_UPGRADE_BUY, (_, id: number) => {
 
   if (UpgradeManager.canBuyUpgrade(upgrade, accountManager.getFollower())) {
     accountManager.decreaseFollower(UpgradeManager.getUpgradePrice(upgrade));
+
     sendFollowerUpdate(accountManager.getFollower());
 
     upgradeManager.buyUpgrade(upgrade);
